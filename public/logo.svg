@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 160" fill="none">
+  <defs>
+    <linearGradient id="logo-bg-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0F4C81" />
+      <stop offset="100%" stop-color="#002444" />
+    </linearGradient>
+    <linearGradient id="logo-gold-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFD700" />
+      <stop offset="100%" stop-color="#F6BE39" />
+    </linearGradient>
+    <linearGradient id="logo-silver-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F8FAFC" />
+      <stop offset="100%" stop-color="#CBD5E1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Brand Mark Icon Shield (Left) -->
+  <g transform="translate(10, 10)">
+    <rect width="140" height="140" rx="32" fill="url(#logo-bg-grad)" />
+    <!-- Hexagon Outline -->
+    <path d="M70 20 L115 45 V95 L70 120 L25 95 V45 Z" fill="none" stroke="url(#logo-silver-grad)" stroke-width="3" stroke-linejoin="round" opacity="0.4" />
+    <!-- "A" Pillar -->
+    <path d="M44 104 L65 34 H75 L96 104 H80 L75 84 H65 L60 104 H44 Z" fill="url(#logo-silver-grad)" />
+    <!-- Gold Ribbon Swoosh -->
+    <path d="M32 90 Q 70 45, 108 60 Q 70 75, 32 90 Z" fill="url(#logo-gold-grad)" />
+    <!-- Diamond -->
+    <polygon points="70,55 77,67 70,79 63,67" fill="#FFFFFF" opacity="0.9" />
+  </g>
+
+  <!-- Brand Name Typography -->
+  <g transform="translate(175, 45)">
+    <!-- Main Title: AluTrade -->
+    <text x="0" y="45" font-family="system-ui, -apple-system, sans-serif" font-weight="900" font-size="44" fill="#00355F" letter-spacing="-1">
+      AluTrade
+    </text>
+    <!-- Accent Title: Global -->
+    <text x="185" y="45" font-family="system-ui, -apple-system, sans-serif" font-weight="900" font-size="44" fill="#F6BE39" letter-spacing="-1">
+      Global
+    </text>
+    <!-- Subtitle Tagline -->
+    <text x="2" y="75" font-family="system-ui, -apple-system, sans-serif" font-weight="700" font-size="13" fill="#595F67" letter-spacing="3.5">
+      INTERNATIONAL METAL TRADING
+    </text>
+  </g>
+</svg>

@@ -1,0 +1,44 @@
+{
+  "name": "AluTrade Global Metal Trading Ltd.",
+  "short_name": "AluTrade Global",
+  "description": "Your global partner in precision metal trading and logistical excellence. Connecting world-class sources with premier manufacturers.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#F9F9FF",
+  "theme_color": "#00355F",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "/favicon-16x16.png",
+      "sizes": "16x16",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicon-32x32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "/maskable-icon.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/maskable-icon-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}

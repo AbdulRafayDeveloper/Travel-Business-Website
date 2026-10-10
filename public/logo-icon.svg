@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="none">
+  <defs>
+    <linearGradient id="metal-primary" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0F4C81" />
+      <stop offset="100%" stop-color="#002444" />
+    </linearGradient>
+    <linearGradient id="gold-accent" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFD700" />
+      <stop offset="100%" stop-color="#F6BE39" />
+    </linearGradient>
+    <linearGradient id="silver-accent" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#E2E8F0" />
+      <stop offset="100%" stop-color="#94A3B8" />
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="8" stdDeviation="12" flood-color="#001C37" flood-opacity="0.3" />
+    </filter>
+  </defs>
+
+  <!-- Background Shield Container -->
+  <rect width="512" height="512" rx="112" fill="url(#metal-primary)" />
+
+  <!-- Outer Isometric Metal Hexagon/Ingot -->
+  <path d="M256 72 L420 166 V346 L256 440 L92 346 V166 Z" fill="none" stroke="url(#silver-accent)" stroke-width="12" stroke-linejoin="round" opacity="0.4" />
+
+  <!-- Abstract Metallic "A" Pillar Left -->
+  <path d="M160 380 L236 120 H276 L352 380 H294 L276 310 H236 L218 380 H160 Z" fill="url(#silver-accent)" filter="url(#shadow)" />
+
+  <!-- Gold Dynamic Trading Swoosh Crossing the "A" -->
+  <path d="M120 330 Q 256 160, 392 210 Q 256 260, 120 330 Z" fill="url(#gold-accent)" filter="url(#shadow)" />
+
+  <!-- Inner Diamond Core -->
+  <polygon points="256,200 280,245 256,290 232,245" fill="#FFFFFF" opacity="0.9" />
+</svg>
