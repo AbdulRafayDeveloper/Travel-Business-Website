@@ -33,7 +33,7 @@ export default function FaqsPage() {
         image={siteImages.haramInterior}
         urdu="اکثر پوچھے گئے سوالات"
         eyebrow={`${allFaqs.length} questions across ${faqGroups.length} topics`}
-        title={<>Straight answers, <em>before</em> you call.</>}
+        title={<>Umrah questions, with straight answers <em>before</em> you call.</>}
         lede="Grouped by topic. If your question is not here, WhatsApp us and we will add the answer for the next family."
       >
         <nav aria-label="FAQ topics" className="flex flex-wrap gap-2">

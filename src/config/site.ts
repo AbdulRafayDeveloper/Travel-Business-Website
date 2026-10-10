@@ -103,16 +103,30 @@ export const siteConfig = {
 
 export type DepartureCity = (typeof siteConfig.departureCities)[number];
 
-const FALLBACK_URL = "https://travel-business-website-2.vercel.app";
+const LOCAL_URL = "http://localhost:3000";
 
+/** False only on Vercel preview deployments; local and non-Vercel builds behave as production. */
+export function isProductionDeployment(): boolean {
+  return process.env.VERCEL_ENV ? process.env.VERCEL_ENV === "production" : true;
+}
+
+/**
+ * Canonical site origin: the single source of truth for every absolute URL (metadata, sitemap,
+ * robots, JSON-LD, social cards). Resolution order:
+ * 1. NEXT_PUBLIC_SITE_URL, the configured production origin (always wins when set).
+ * 2. On Vercel production, the project production URL.
+ * 3. On Vercel preview deployments, the deployment URL (never used for production canonicals).
+ * 4. Local development.
+ * No production domain is hardcoded anywhere in the codebase.
+ */
 export function getBaseUrl(): string {
-  if (process.env.NEXT_PUBLIC_SITE_URL) {
-    return process.env.NEXT_PUBLIC_SITE_URL.replace(/\/$/, "");
-  }
-  if (process.env.VERCEL_PROJECT_PRODUCTION_URL) {
+  const configured = process.env.NEXT_PUBLIC_SITE_URL?.trim();
+  if (configured) return new URL(configured).origin;
+  if (process.env.VERCEL_ENV === "production" && process.env.VERCEL_PROJECT_PRODUCTION_URL) {
     return `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`;
   }
-  return FALLBACK_URL;
+  if (process.env.VERCEL_URL) return `https://${process.env.VERCEL_URL}`;
+  return LOCAL_URL;
 }
 
 /** Build a wa.me link with an optional prefilled message. */

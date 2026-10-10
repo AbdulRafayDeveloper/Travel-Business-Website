@@ -1,54 +1,62 @@
 import type { NextConfig } from "next";
 
+const isProd = process.env.NODE_ENV === "production";
+// Vercel preview deployments must never be indexed in place of the canonical site.
+const isPreview = Boolean(process.env.VERCEL_ENV) && process.env.VERCEL_ENV !== "production";
+
+/**
+ * Content Security Policy. Inline scripts/styles are required by Next.js hydration and Tailwind;
+ * everything else is restricted to this origin plus the few third parties the site actually uses
+ * (Google Fonts for Material Symbols, Google Maps embeds on the contact page, WhatsApp links).
+ * 'unsafe-eval' is only needed by the development tooling.
+ */
+const contentSecurityPolicy = [
+  "default-src 'self'",
+  `script-src 'self' 'unsafe-inline'${isProd ? "" : " 'unsafe-eval'"}`,
+  "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
+  "font-src 'self' data: https://fonts.gstatic.com",
+  "img-src 'self' data: blob:",
+  "frame-src https://www.google.com",
+  "connect-src 'self'",
+  "object-src 'none'",
+  "base-uri 'self'",
+  "form-action 'self'",
+  "frame-ancestors 'self'",
+  "upgrade-insecure-requests",
+].join("; ");
+
+const securityHeaders = [
+  { key: "Content-Security-Policy", value: contentSecurityPolicy },
+  { key: "X-Content-Type-Options", value: "nosniff" },
+  { key: "X-Frame-Options", value: "SAMEORIGIN" },
+  { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
+  { key: "Permissions-Policy", value: "camera=(), microphone=(), geolocation=(), payment=(), usb=()" },
+  { key: "X-Robots-Tag", value: isPreview ? "noindex, nofollow" : "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" },
+];
+
 const nextConfig: NextConfig = {
   compress: true,
   reactStrictMode: true,
+  poweredByHeader: false,
   compiler: {
-    removeConsole: process.env.NODE_ENV === "production",
+    removeConsole: isProd ? { exclude: ["error", "info"] } : false,
   },
   images: {
     formats: ["image/avif", "image/webp"],
     qualities: [65, 70, 75],
-    remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "lh3.googleusercontent.com",
-        pathname: "/**",
-      },
-    ],
     minimumCacheTTL: 86400,
   },
   async headers() {
     return [
+      { source: "/:path*", headers: securityHeaders },
       {
-        source: "/:path*",
-        headers: [
-          {
-            key: "X-Robots-Tag",
-            value: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
-          },
-          {
-            key: "X-Content-Type-Options",
-            value: "nosniff",
-          },
-          {
-            key: "X-Frame-Options",
-            value: "SAMEORIGIN",
-          },
-          {
-            key: "Referrer-Policy",
-            value: "strict-origin-when-cross-origin",
-          },
-        ],
+        source: "/images/:path*",
+        headers: [{ key: "Cache-Control", value: "public, max-age=31536000, immutable" }],
       },
       {
-        source: "/favicon.ico",
-        headers: [
-          {
-            key: "Cache-Control",
-            value: "public, max-age=86400, must-revalidate",
-          },
-        ],
+        // Brand icons: cache for a week but allow updates after a redeploy.
+        source: "/:file((?:favicon|icon|android-chrome|apple-touch-icon|maskable-icon|monochrome-icon)[A-Za-z0-9-]*[.](?:png|ico)|logo-mark[.]svg|safari-pinned-tab[.]svg)",
+        headers: [{ key: "Cache-Control", value: "public, max-age=604800, must-revalidate" }],
       },
     ];
   },

@@ -39,8 +39,8 @@ export function HomeHero() {
             <p className="eyebrow mt-1 flex items-center gap-2 text-gold">
               <span className="h-px w-8 bg-gold" aria-hidden="true" /> Umrah from Pakistan<span className="hidden sm:inline"> · 2026 to 27</span>
             </p>
-            <h1 id="hero-title" className="display-title mt-3 text-[2.35rem] leading-[1.02] sm:text-6xl lg:text-7xl">
-              Umrah, planned <em className="text-gold">honestly</em>, from PKR {formatPkr(cheapestPackagePrice, false)}.
+            <h1 id="hero-title" className="display-title mt-3 text-[2.35rem] leading-[1.02] sm:text-5xl lg:text-6xl">
+              Umrah packages from Pakistan, planned <em className="text-gold">honestly</em>, from PKR {formatPkr(cheapestPackagePrice, false)}.
             </h1>
             <p className="mt-3 max-w-xl text-base leading-relaxed text-white/85 sm:text-lg lg:mt-4 lg:text-xl">
               Real per-person prices for Quad, Triple and Double rooms, named hotels and their distance from the Haram. Licensed in Pakistan, trusted by {siteConfig.stats.pilgrims} pilgrims since {siteConfig.foundedYear}.

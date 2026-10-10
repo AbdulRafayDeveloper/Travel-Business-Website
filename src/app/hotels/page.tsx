@@ -52,7 +52,7 @@ export default function HotelsPage() {
         image={siteImages.hotelsHero}
         urdu="مکہ اور مدینہ کے ہوٹل"
         eyebrow={`${hotels.length} inspected hotels, rates updated ${formatDate(siteConfig.pricesUpdatedOn)}`}
-        title={<>Hotels we have <em>slept in</em>, priced per night.</>}
+        title={<>Makkah and Madinah hotels we have <em>slept in</em>, priced per night.</>}
         lede="Already have your flights or visa? Book only the hotel. Every distance below is the walk from the hotel door to the nearest Haram gate, measured by our team."
       >
         <ul className="flex flex-wrap gap-x-5 gap-y-2 text-sm text-ink">

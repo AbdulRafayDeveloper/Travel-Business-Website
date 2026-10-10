@@ -88,6 +88,13 @@ export const organizationSchema = {
     addressCountry: "PK",
   },
   geo: { "@type": "GeoCoordinates", latitude: 31.5204, longitude: 74.3587 },
+  location: offices.map((office) => ({
+    "@type": "Place",
+    name: `${siteConfig.name} ${office.city} ${office.label}`,
+    telephone: office.telUrl.replace("tel:", ""),
+    address: { "@type": "PostalAddress", streetAddress: office.address, addressLocality: office.city, addressCountry: "PK" },
+  })),
+  founder: { "@type": "Person", name: "Muhammad Tahir Raahi", jobTitle: "Founder and Managing Director" },
   areaServed: siteConfig.departureCities.map((city) => ({ "@type": "City", name: city })),
   openingHoursSpecification: [
     { "@type": "OpeningHoursSpecification", dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"], opens: "10:00", closes: "20:00" },
@@ -239,6 +246,26 @@ export function buildArticleSchema(guide: Guide) {
     mainEntityOfPage: `${BASE_URL}${path}`,
     inLanguage: "en-PK",
     articleSection: guide.category,
+  };
+}
+
+/** Team members as Person entities that work for the organisation (E-E-A-T: named, real roles). */
+export function buildTeamSchema(members: Array<{ name: string; role: string; languages: string[] }>) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: `${siteConfig.fullName} team`,
+    itemListElement: members.map((m, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      item: {
+        "@type": "Person",
+        name: m.name,
+        jobTitle: m.role,
+        worksFor: { "@id": organizationId },
+        knowsLanguage: m.languages,
+      },
+    })),
   };
 }
 

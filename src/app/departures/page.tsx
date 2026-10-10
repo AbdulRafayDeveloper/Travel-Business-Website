@@ -43,7 +43,7 @@ export default function DeparturesPage() {
         variant="band"
         urdu="گروپ روانگی کی تاریخیں"
         eyebrow={`${departures.length} departures over ${months.length} months`}
-        title={<>Fixed dates with a <em className="text-gold">group leader</em>.</>}
+        title={<>Umrah group departures on fixed dates, with a <em className="text-gold">group leader</em>.</>}
         lede="Every departure shows the airline, the package it belongs to, seats remaining and the lowest per-person price. Seats are confirmed in order of deposit."
       >
         <nav aria-label="Jump to month" className="no-scrollbar -mx-4 flex gap-2 overflow-x-auto px-4 sm:mx-0 sm:px-0">

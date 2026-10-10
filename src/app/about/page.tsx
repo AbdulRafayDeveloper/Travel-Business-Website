@@ -9,7 +9,7 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 import { offices, siteConfig } from "@/config/site";
 import { milestones, team, whyRaahi } from "@/data/company";
 import { siteImages } from "@/data/images";
-import { buildBreadcrumbSchema, buildMetadata, buildWebPageSchema } from "@/lib/seo";
+import { buildBreadcrumbSchema, buildMetadata, buildTeamSchema, buildWebPageSchema } from "@/lib/seo";
 
 const title = "About Raahi: Licensed Umrah Operator in Lahore, Karachi & Islamabad";
 const description = `Raahi Umrah & Travel has taken ${siteConfig.stats.pilgrims} pilgrims to the Haramain since ${siteConfig.foundedYear}. Meet the team, see our licences and offices, and read why we publish every price.`;
@@ -27,6 +27,7 @@ export default function AboutPage() {
     <>
       <JsonLd data={buildBreadcrumbSchema(crumbs)} />
       <JsonLd data={buildWebPageSchema({ name: title, description, path, type: "AboutPage" })} />
+      <JsonLd data={buildTeamSchema(team)} />
 
       <PageHero
         crumbs={crumbs}
@@ -34,7 +35,7 @@ export default function AboutPage() {
         image={siteImages.aboutHero}
         urdu="ہمارے بارے میں"
         eyebrow={`Since ${siteConfig.foundedYear}, ${siteConfig.stats.pilgrims} pilgrims`}
-        title={<>A travel company built on <em className="text-gold">written promises</em>.</>}
+        title={<>An Umrah travel company built on <em className="text-gold">written promises</em>.</>}
         lede="Raahi started with one group leader, a notebook of hotel numbers and a rule: tell pilgrims the real price and the real distance. Thirteen years later that is still the whole business."
       />
 

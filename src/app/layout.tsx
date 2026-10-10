@@ -87,6 +87,7 @@ export const metadata: Metadata = {
     description: siteConfig.description,
   },
   alternates: { canonical: BASE_URL },
+  verification: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION ? { google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION } : undefined,
   icons: {
     icon: [
       { url: "/favicon.ico", sizes: "16x16 32x32 48x48", type: "image/x-icon" },
