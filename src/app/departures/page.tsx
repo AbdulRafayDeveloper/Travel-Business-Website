@@ -17,7 +17,7 @@ const title = "Umrah Group Departures 2026 to 2027 from Lahore, Karachi & Islama
 const description = `${departures.length} fixed-date Umrah group departures from ${siteConfig.departureCities.slice(0, 4).join(", ")} with airline, package, seats left and starting price. Winter, Ramadan and school-holiday dates.`;
 const path = "/departures";
 
-export const metadata: Metadata = buildMetadata({ title, description, path, image: siteImages.airplane.src });
+export const metadata: Metadata = buildMetadata({ title, description, path, photo: "airplane" });
 
 const crumbs = [
   { name: "Home", path: "/" },

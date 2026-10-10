@@ -11,7 +11,7 @@ import { JsonLd } from "@/components/ui/JsonLd";
 import { WhatsAppIcon } from "@/components/ui/WhatsAppIcon";
 import { whatsappUrl } from "@/config/site";
 import { getGuide, guides } from "@/data/guides";
-import { siteImages } from "@/data/images";
+import { photoKeyFor, siteImages } from "@/data/images";
 import { buildArticleSchema, buildBreadcrumbSchema, buildMetadata } from "@/lib/seo";
 import { formatDate, slugify } from "@/lib/utils";
 
@@ -27,7 +27,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const { slug } = await params;
   const guide = getGuide(slug);
   if (!guide) return { title: "Guide not found" };
-  return buildMetadata({ title: guide.title, description: guide.excerpt, path: `/umrah-guide/${guide.slug}`, image: guide.image, type: "article" });
+  return buildMetadata({ title: guide.title, description: guide.excerpt, path: `/umrah-guide/${guide.slug}`, photo: photoKeyFor(guide.image), eyebrow: `Umrah guide, ${guide.category}`, type: "article" });
 }
 
 export default async function GuidePage({ params }: PageProps) {

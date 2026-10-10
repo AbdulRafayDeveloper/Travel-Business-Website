@@ -17,7 +17,7 @@ const description =
   "Plain-language Umrah guides written by Raahi group leaders: step-by-step rituals, packing checklist for Pakistani pilgrims, travelling with elderly parents and children, Makkah and Madinah ziyarat, best time and real costs.";
 const path = "/umrah-guide";
 
-export const metadata: Metadata = buildMetadata({ title, description, path, image: siteImages.guideHero.src });
+export const metadata: Metadata = buildMetadata({ title, description, path, photo: "guideHero" });
 
 const crumbs = [
   { name: "Home", path: "/" },

@@ -31,4 +31,14 @@ export const siteImages = {
   zamzam: { src: `${BASE}/zamzam.jpg`, alt: "Open Quran with tasbih and dates", width: 1400, height: 933 },
 } as const;
 
-export type SiteImage = (typeof siteImages)[keyof typeof siteImages];
+export type SiteImageKey = keyof typeof siteImages;
+export type SiteImage = (typeof siteImages)[SiteImageKey];
+
+export function isSiteImageKey(value: string): value is SiteImageKey {
+  return Object.prototype.hasOwnProperty.call(siteImages, value);
+}
+
+/** Reverse lookup from a public path (e.g. a package's image) to its registry key. */
+export function photoKeyFor(src: string): SiteImageKey | undefined {
+  return (Object.keys(siteImages) as SiteImageKey[]).find((key) => siteImages[key].src === src);
+}

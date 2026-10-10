@@ -7,7 +7,6 @@ import { JsonLd } from "@/components/ui/JsonLd";
 import { PlannerForm } from "@/features/inquiry/PlannerForm";
 import { contactNumber, siteConfig, whatsappUrl } from "@/config/site";
 import { team } from "@/data/company";
-import { siteImages } from "@/data/images";
 import { buildBreadcrumbSchema, buildMetadata, buildWebPageSchema } from "@/lib/seo";
 
 const title = "Plan Your Umrah: Free Quote in 2 Minutes";
@@ -15,7 +14,7 @@ const description =
   "Tell us your departure city, month, duration, hotel category and travellers. See a live estimate, then a named Raahi consultant calls back within 30 minutes with a written quote. No payment needed.";
 const path = "/plan-your-umrah";
 
-export const metadata: Metadata = buildMetadata({ title, description, path, image: siteImages.duaHands.src });
+export const metadata: Metadata = buildMetadata({ title, description, path, photo: "duaHands" });
 
 const crumbs = [
   { name: "Home", path: "/" },

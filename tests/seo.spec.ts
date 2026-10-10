@@ -17,10 +17,26 @@ test.describe("SEO plumbing", () => {
   });
 
   test("manifest, icons and social images respond", async ({ request }) => {
-    for (const path of ["/manifest.webmanifest", "/icon", "/apple-icon", "/opengraph-image", "/twitter-image", "/favicon.ico", "/icon-512x512.png"]) {
+    for (const path of ["/manifest.webmanifest", "/icon", "/apple-icon", "/opengraph-image", "/twitter-image", "/favicon.ico", "/favicon-32x32.png", "/icon-192x192.png", "/icon-512x512.png", "/maskable-icon-512x512.png", "/monochrome-icon-512x512.png", "/safari-pinned-tab.svg", "/logo-mark.svg", "/apple-touch-icon.png"]) {
       const res = await request.get(path);
       expect(res.status(), path).toBe(200);
     }
+    const manifest = (await (await request.get("/manifest.webmanifest")).json()) as { name: string; theme_color: string; icons: Array<{ sizes: string; purpose?: string }> };
+    expect(manifest.name).toContain("Raahi");
+    expect(manifest.theme_color).toBe("#0E4D45");
+    expect(manifest.icons.map((i) => i.sizes)).toEqual(expect.arrayContaining(["192x192", "512x512", "144x144", "96x96"]));
+    expect(manifest.icons.some((i) => i.purpose === "maskable")).toBe(true);
+  });
+
+  test("branded social card renders for any page and falls back safely", async ({ request }) => {
+    const card = await request.get("/og?t=Umrah%20packages&e=Test&s=Subtitle&p=packagesHero");
+    expect(card.status()).toBe(200);
+    expect(card.headers()["content-type"]).toContain("image/png");
+    expect(card.headers()["cache-control"]).toContain("max-age");
+    expect((await card.body()).length).toBeGreaterThan(10_000);
+    const fallback = await request.get("/og?p=does-not-exist");
+    expect(fallback.status()).toBe(200);
+    expect(fallback.headers()["content-type"]).toContain("image/png");
   });
 
   test("home page carries organisation, website and FAQ structured data", async ({ page }) => {
@@ -39,7 +55,8 @@ test.describe("SEO plumbing", () => {
     const trip = blocks.map((b) => JSON.parse(b) as { "@type"?: string | string[]; offers?: Array<{ price: number }> }).find((p) => Array.isArray(p["@type"]) && p["@type"].includes("TouristTrip"));
     expect(trip?.offers?.map((o) => o.price)).toEqual([165000, 185000, 215000]);
     await expect(page.locator('meta[property="og:title"]')).toHaveAttribute("content", /Economy Umrah/);
-    await expect(page.locator('meta[property="og:image"]')).toHaveAttribute("content", /tawaf\.jpg$/);
+    const ogImage = await page.locator('meta[property="og:image"]').getAttribute("content");
+    expect(ogImage, "branded social card carrying the package photo").toMatch(/\/og\?.*p=tawaf/);
   });
 
   test("every page has unique title and description", async ({ request }) => {

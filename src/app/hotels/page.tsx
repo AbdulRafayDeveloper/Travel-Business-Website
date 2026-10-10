@@ -20,7 +20,7 @@ const title = "Makkah & Madinah Hotels Near the Haram with Nightly Rates in PKR"
 const description = `Hotel-only rates for ${hotels.length} inspected hotels in Makkah and Madinah: distance to the Haram in metres, meals, shuttle and price per night in PKR. Book just the hotel if you have your own flights.`;
 const path = "/hotels";
 
-export const metadata: Metadata = buildMetadata({ title, description, path, image: siteImages.hotelsHero.src });
+export const metadata: Metadata = buildMetadata({ title, description, path, photo: "hotelsHero" });
 
 const crumbs = [
   { name: "Home", path: "/" },

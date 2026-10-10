@@ -13,7 +13,7 @@ const title = "Umrah FAQs: Prices, Visa, Booking, Payment & Hotels";
 const description = `${allFaqs.length} straight answers about Umrah from Pakistan: whether prices are final, who issues the visa, deposits and instalments, cancellation, hotel distances, food, airlines and travelling with elderly parents.`;
 const path = "/faqs";
 
-export const metadata: Metadata = buildMetadata({ title, description, path, image: siteImages.haramInterior.src });
+export const metadata: Metadata = buildMetadata({ title, description, path, photo: "haramInterior" });
 
 const crumbs = [
   { name: "Home", path: "/" },

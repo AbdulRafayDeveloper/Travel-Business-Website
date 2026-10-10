@@ -21,7 +21,7 @@ const description =
   "Ramadan 2027 Umrah packages from Lahore, Karachi and Islamabad with the last ten nights in Makkah, Sehri and Iftar included, extra Taraweeh shuttles and Eid prayer in Madinah. Limited seats, per-person prices shown.";
 const path = "/ramadan-umrah";
 
-export const metadata: Metadata = buildMetadata({ title, description, path, image: siteImages.haramInterior.src });
+export const metadata: Metadata = buildMetadata({ title, description, path, photo: "haramInterior" });
 
 const crumbs = [
   { name: "Home", path: "/" },

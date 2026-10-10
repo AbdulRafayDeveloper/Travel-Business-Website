@@ -14,9 +14,10 @@ export default function manifest(): MetadataRoute.Manifest {
     dir: "ltr",
     categories: ["travel", "lifestyle"],
     icons: [
-      { src: "/icon-192x192.png", sizes: "192x192", type: "image/png", purpose: "any" },
-      { src: "/icon-512x512.png", sizes: "512x512", type: "image/png", purpose: "any" },
+      ...[48, 72, 96, 144, 192, 256, 384, 512].map((size) => ({ src: `/icon-${size}x${size}.png`, sizes: `${size}x${size}`, type: "image/png", purpose: "any" as const })),
+      { src: "/maskable-icon.png", sizes: "192x192", type: "image/png", purpose: "maskable" },
       { src: "/maskable-icon-512x512.png", sizes: "512x512", type: "image/png", purpose: "maskable" },
+      { src: "/monochrome-icon-512x512.png", sizes: "512x512", type: "image/png", purpose: "monochrome" },
     ],
   };
 }

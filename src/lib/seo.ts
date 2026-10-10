@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { getBaseUrl, offices, siteConfig } from "@/config/site";
 import type { FaqItem, Guide, Hotel, UmrahPackage } from "@/types";
 import { getHotel } from "@/data/hotels";
+import type { SiteImageKey } from "@/data/images";
 
 export const BASE_URL = getBaseUrl();
 
@@ -11,15 +12,28 @@ interface PageMetaInput {
   title: string;
   description: string;
   path: string;
-  image?: string;
+  /** Photo key from siteImages shown on the branded social card. Without it the card is logo-only. */
+  photo?: SiteImageKey;
+  /** Short label above the title on the social card, e.g. "Umrah packages". */
+  eyebrow?: string;
   type?: "website" | "article";
   noIndex?: boolean;
 }
 
+/** Absolute URL for the branded social card rendered by src/app/og/route.tsx. */
+export function socialImageUrl(input: { title: string; subtitle?: string; eyebrow?: string; photo?: SiteImageKey }): string {
+  const url = new URL("/og", BASE_URL);
+  url.searchParams.set("t", input.title);
+  if (input.eyebrow) url.searchParams.set("e", input.eyebrow);
+  if (input.subtitle) url.searchParams.set("s", input.subtitle);
+  if (input.photo) url.searchParams.set("p", input.photo);
+  return url.toString();
+}
+
 /** Build complete per-page metadata: canonical, Open Graph, Twitter. */
-export function buildMetadata({ title, description, path, image, type = "website", noIndex = false }: PageMetaInput): Metadata {
-  const url = `${BASE_URL}${path}`;
-  const ogImage = image ? `${BASE_URL}${image}` : OG_IMAGE;
+export function buildMetadata({ title, description, path, photo, eyebrow, type = "website", noIndex = false }: PageMetaInput): Metadata {
+  const url = new URL(path || "/", BASE_URL).toString().replace(/\/$/, path ? "" : "");
+  const ogImage = path ? socialImageUrl({ title, subtitle: description, eyebrow, photo }) : OG_IMAGE;
   return {
     title,
     description,
@@ -36,6 +50,8 @@ export function buildMetadata({ title, description, path, image, type = "website
     },
     twitter: {
       card: "summary_large_image",
+      site: siteConfig.social.twitterHandle,
+      creator: siteConfig.social.twitterHandle,
       title,
       description,
       images: [ogImage],
@@ -80,7 +96,7 @@ export const organizationSchema = {
     { "@type": "ContactPoint", telephone: "+923001234567", contactType: "customer service", availableLanguage: ["Urdu", "English", "Punjabi"], areaServed: "PK", hoursAvailable: "Mo-Su 09:00-23:00" },
     { "@type": "ContactPoint", telephone: "+923001234567", contactType: "sales", availableLanguage: ["Urdu", "English"], areaServed: "PK" },
   ],
-  sameAs: Object.values(siteConfig.social),
+  sameAs: [siteConfig.social.facebook, siteConfig.social.instagram, siteConfig.social.youtube, siteConfig.social.tiktok, siteConfig.social.twitter],
   knowsAbout: ["Umrah packages", "Umrah visa assistance", "Makkah hotels", "Madinah hotels", "Ziyarat tours", "Ramadan Umrah"],
   aggregateRating: {
     "@type": "AggregateRating",

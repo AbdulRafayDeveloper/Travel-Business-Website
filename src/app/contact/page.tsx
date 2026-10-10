@@ -7,14 +7,13 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 import { WhatsAppIcon } from "@/components/ui/WhatsAppIcon";
 import { ContactForm } from "@/features/contact/ContactForm";
 import { contactNumber, offices, siteConfig, whatsappUrl } from "@/config/site";
-import { siteImages } from "@/data/images";
 import { buildBreadcrumbSchema, buildMetadata, buildWebPageSchema } from "@/lib/seo";
 
 const title = "Contact Raahi: WhatsApp, Call or Visit Our Lahore, Karachi & Islamabad Offices";
 const description = `Reach a named Umrah consultant on WhatsApp ${siteConfig.supportHours}, call ${contactNumber.display}, or visit our offices in Lahore (head office), Karachi and Islamabad.`;
 const path = "/contact";
 
-export const metadata: Metadata = buildMetadata({ title, description, path, image: siteImages.madinahNight.src });
+export const metadata: Metadata = buildMetadata({ title, description, path, photo: "madinahNight" });
 
 const crumbs = [
   { name: "Home", path: "/" },

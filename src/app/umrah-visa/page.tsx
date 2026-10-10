@@ -19,7 +19,7 @@ const description =
   "Umrah visa processing assistance through Saudi-licensed operators. Document checklist for Pakistani passports, 2 to 7 working day timeline, secure consultation form and application status tracking. Visas are issued by Saudi authorities.";
 const path = "/umrah-visa";
 
-export const metadata: Metadata = buildMetadata({ title, description, path, image: siteImages.visaHero.src });
+export const metadata: Metadata = buildMetadata({ title, description, path, photo: "visaHero" });
 
 const crumbs = [
   { name: "Home", path: "/" },

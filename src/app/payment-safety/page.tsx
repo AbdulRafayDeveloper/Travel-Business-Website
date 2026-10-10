@@ -7,7 +7,6 @@ import { JsonLd } from "@/components/ui/JsonLd";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { contactNumber, siteConfig } from "@/config/site";
 import { officialAccounts, paymentMethods } from "@/data/company";
-import { siteImages } from "@/data/images";
 import { buildBreadcrumbSchema, buildMetadata, buildWebPageSchema } from "@/lib/seo";
 
 const title = "Payment Safety: Official Raahi Bank Accounts & How to Avoid Umrah Fraud";
@@ -15,7 +14,7 @@ const description =
   "Pay only to the official Raahi Umrah & Travel company accounts listed here (HBL, Meezan Bank, JazzCash, Easypaisa). Always collect a receipt with a booking number. How to recognise Umrah payment scams in Pakistan.";
 const path = "/payment-safety";
 
-export const metadata: Metadata = buildMetadata({ title, description, path, image: siteImages.visaHero.src });
+export const metadata: Metadata = buildMetadata({ title, description, path, photo: "visaHero" });
 
 const crumbs = [
   { name: "Home", path: "/" },

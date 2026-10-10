@@ -15,7 +15,7 @@ const title = "About Raahi: Licensed Umrah Operator in Lahore, Karachi & Islamab
 const description = `Raahi Umrah & Travel has taken ${siteConfig.stats.pilgrims} pilgrims to the Haramain since ${siteConfig.foundedYear}. Meet the team, see our licences and offices, and read why we publish every price.`;
 const path = "/about";
 
-export const metadata: Metadata = buildMetadata({ title, description, path, image: siteImages.aboutHero.src });
+export const metadata: Metadata = buildMetadata({ title, description, path, photo: "aboutHero" });
 
 const crumbs = [
   { name: "Home", path: "/" },

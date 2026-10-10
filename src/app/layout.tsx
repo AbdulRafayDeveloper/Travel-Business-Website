@@ -81,20 +81,30 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
+    site: siteConfig.social.twitterHandle,
+    creator: siteConfig.social.twitterHandle,
     title: defaultTitle,
     description: siteConfig.description,
   },
   alternates: { canonical: BASE_URL },
   icons: {
     icon: [
-      { url: "/icon", sizes: "32x32", type: "image/png" },
-      { url: "/favicon.ico", sizes: "any" },
+      { url: "/favicon.ico", sizes: "16x16 32x32 48x48", type: "image/x-icon" },
+      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
       { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+      { url: "/favicon-48x48.png", sizes: "48x48", type: "image/png" },
       { url: "/icon-192x192.png", sizes: "192x192", type: "image/png" },
       { url: "/icon-512x512.png", sizes: "512x512", type: "image/png" },
+      { url: "/logo-mark.svg", type: "image/svg+xml" },
     ],
-    apple: [{ url: "/apple-icon", sizes: "180x180", type: "image/png" }],
+    shortcut: ["/favicon.ico"],
+    apple: [
+      { url: "/apple-icon", sizes: "180x180", type: "image/png" },
+      { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
+    ],
+    other: [{ rel: "mask-icon", url: "/safari-pinned-tab.svg", color: "#0E4D45" }],
   },
+  appleWebApp: { capable: true, title: siteConfig.name, statusBarStyle: "black-translucent" },
   manifest: "/manifest.webmanifest",
 };
 

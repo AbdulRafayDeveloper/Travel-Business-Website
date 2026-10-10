@@ -93,6 +93,8 @@ export const siteConfig = {
     instagram: "https://instagram.com/raahiumrah",
     youtube: "https://youtube.com/@raahiumrah",
     tiktok: "https://tiktok.com/@raahiumrah",
+    twitter: "https://x.com/raahiumrah",
+    twitterHandle: "@raahiumrah",
   },
   pricesUpdatedOn: "2026-10-10",
   departureCities: ["Lahore", "Karachi", "Islamabad", "Sialkot", "Multan", "Peshawar", "Faisalabad"],

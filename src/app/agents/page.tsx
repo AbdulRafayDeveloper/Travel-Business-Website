@@ -14,7 +14,7 @@ const description =
   "Sell Raahi Umrah packages under your own agency name: net B2B rates, same-day written quotes, visa processing, hotel allocations in Ramadan and a dedicated partner desk. For licensed travel agents across Pakistan.";
 const path = "/agents";
 
-export const metadata: Metadata = buildMetadata({ title, description, path, image: siteImages.coachBus.src });
+export const metadata: Metadata = buildMetadata({ title, description, path, photo: "coachBus" });
 
 const crumbs = [
   { name: "Home", path: "/" },

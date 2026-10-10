@@ -20,6 +20,7 @@ import { Stars } from "@/components/ui/Stars";
 import { departuresForPackage } from "@/data/departures";
 import { faqGroups } from "@/data/faqs";
 import { getHotel } from "@/data/hotels";
+import { photoKeyFor } from "@/data/images";
 import { howItWorks } from "@/data/company";
 import { getPackage, packages, relatedPackages } from "@/data/packages";
 import { buildBreadcrumbSchema, buildFaqSchema, buildMetadata, buildPackageSchema } from "@/lib/seo";
@@ -43,7 +44,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     title: `${pkg.name} from ${formatPkr(pkg.prices.quad)} per person`,
     description: `${pkg.nights}-night ${tierLabels[pkg.tier]} Umrah package from ${pkg.departureCities.slice(0, 3).join(", ")}: ${pkg.makkah.nights} nights at ${makkah.name} (Makkah) and ${pkg.madinah.nights} nights at ${madinah.name} (Madinah). Quad ${formatPkr(pkg.prices.quad)}, Triple ${formatPkr(pkg.prices.triple)}, Double ${formatPkr(pkg.prices.double)}. Visa, flights, transfers and ziyarat included.`,
     path: `/umrah-packages/${pkg.slug}`,
-    image: pkg.image,
+    photo: photoKeyFor(pkg.image),
+    eyebrow: `${tierLabels[pkg.tier]} Umrah package, ${pkg.nights} nights`,
     type: "article",
   });
 }

@@ -16,7 +16,7 @@ const title = `Raahi Reviews: ${ratingSummary.average} from ${ratingSummary.tota
 const description = "Dated, named reviews from pilgrims who travelled with Raahi from Lahore, Karachi, Islamabad, Faisalabad and Multan. We publish the critical ones too, and reply to every one.";
 const path = "/reviews";
 
-export const metadata: Metadata = buildMetadata({ title, description, path, image: siteImages.ihram.src });
+export const metadata: Metadata = buildMetadata({ title, description, path, photo: "ihram" });
 
 const crumbs = [
   { name: "Home", path: "/" },
