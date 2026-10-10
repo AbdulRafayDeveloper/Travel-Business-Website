@@ -1,6 +1,10 @@
 import { z } from "zod";
 import { siteConfig } from "@/config/site";
 
+// Zod 4 probes `Function("")` to enable its compiled fast path. Our Content Security Policy
+// forbids eval, so run Zod without JIT to keep the console clean and the CSP strict.
+z.config({ jitless: true });
+
 /** Pakistani mobile: 03XX-XXXXXXX, +923XXXXXXXXX or 923XXXXXXXXX. */
 export const pakistaniPhone = z
   .string()
