@@ -31,12 +31,14 @@ test.describe("SEO plumbing", () => {
   test("branded social card renders for any page and falls back safely", async ({ request }) => {
     const card = await request.get("/og?t=Umrah%20packages&e=Test&s=Subtitle&p=packagesHero");
     expect(card.status()).toBe(200);
-    expect(card.headers()["content-type"]).toContain("image/png");
+    expect(card.headers()["content-type"]).toContain("image/jpeg");
     expect(card.headers()["cache-control"]).toContain("max-age");
-    expect((await card.body()).length).toBeGreaterThan(10_000);
+    const bytes = (await card.body()).length;
+    expect(bytes).toBeGreaterThan(10_000);
+    expect(bytes, "social card must stay small enough for WhatsApp previews").toBeLessThan(300_000);
     const fallback = await request.get("/og?p=does-not-exist");
     expect(fallback.status()).toBe(200);
-    expect(fallback.headers()["content-type"]).toContain("image/png");
+    expect(fallback.headers()["content-type"]).toContain("image/jpeg");
   });
 
   test("home page carries organisation, website and FAQ structured data", async ({ page }) => {

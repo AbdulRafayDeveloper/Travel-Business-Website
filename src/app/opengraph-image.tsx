@@ -1,9 +1,9 @@
 import { siteConfig } from "@/config/site";
-import { OG_SIZE, renderOgImage } from "@/lib/og";
+import { OG_CONTENT_TYPE, OG_SIZE, renderOgImage } from "@/lib/og";
 
 export const alt = `${siteConfig.fullName}, Umrah packages from Pakistan with real prices`;
 export const size = OG_SIZE;
-export const contentType = "image/png";
+export const contentType = OG_CONTENT_TYPE;
 
 /** Default social card: used by the home page and as the fallback for every page without its own. */
 export default function OpenGraphImage() {
