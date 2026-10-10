@@ -22,7 +22,10 @@ export const staticRoutes = [
   "/refund-policy",
 ] as const;
 
-/** Console messages we tolerate (dev-only noise from Next.js and the Google Fonts stylesheet). */
+/**
+ * Console messages we tolerate: dev-only noise from Next.js, and Firefox reporting font downloads
+ * that were aborted (status 2152398850 = NS_BINDING_ABORTED) when the dev server hot-reloads a page.
+ */
 export function isIgnorableConsoleError(text: string): boolean {
-  return /Download the React DevTools|hydration|favicon|net::ERR_|Failed to load resource.*fonts\.googleapis/i.test(text);
+  return /Download the React DevTools|hydration|favicon|net::ERR_|Failed to load resource.*fonts\.googleapis|downloadable font: download failed.*status=2152398850/i.test(text);
 }
