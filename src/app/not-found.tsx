@@ -1,121 +1,31 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { LinkButton } from "@/components/ui/Button";
+import { Container } from "@/components/ui/Container";
+import { Icon } from "@/components/ui/Icon";
+import { primaryNav } from "@/config/navigation";
 
 export const metadata: Metadata = {
-  title: "Page Not Found | AluTrade Global",
-  description: "The page you are looking for does not exist. Return to AluTrade Global to explore our aluminum and metal trading services.",
-  robots: { index: false, follow: true },
+  title: "Page not found",
+  robots: { index: false, follow: false },
 };
 
 export default function NotFound() {
   return (
-    <html lang="en">
-      <body
-        style={{
-          minHeight: "100vh",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          backgroundColor: "#f9f9ff",
-          fontFamily: "system-ui, sans-serif",
-          padding: "2rem",
-        }}
-      >
-        <main
-          style={{ textAlign: "center", maxWidth: "600px" }}
-          role="main"
-          aria-labelledby="not-found-title"
-        >
-          <p
-            style={{
-              fontSize: "7rem",
-              fontWeight: "900",
-              color: "#11224E",
-              lineHeight: 1,
-              margin: "0 0 1rem",
-            }}
-            aria-hidden="true"
-          >
-            404
-          </p>
-          <h1
-            id="not-found-title"
-            style={{
-              fontSize: "1.75rem",
-              fontWeight: "700",
-              color: "#11224E",
-              marginBottom: "1rem",
-            }}
-          >
-            Page Not Found
-          </h1>
-          <p
-            style={{
-              color: "#595f67",
-              fontSize: "1.1rem",
-              lineHeight: 1.7,
-              marginBottom: "2.5rem",
-            }}
-          >
-            The page you are looking for doesn&apos;t exist or has been moved.
-            Let&apos;s get you back on track.
-          </p>
-          <nav
-            aria-label="Recovery navigation"
-            style={{
-              display: "flex",
-              flexWrap: "wrap",
-              gap: "1rem",
-              justifyContent: "center",
-            }}
-          >
-            <Link
-              href="/"
-              style={{
-                backgroundColor: "#11224E",
-                color: "#ffffff",
-                padding: "0.875rem 2rem",
-                borderRadius: "0.75rem",
-                fontWeight: "700",
-                textDecoration: "none",
-                fontSize: "0.95rem",
-              }}
-            >
-              Return to Homepage
+    <Container className="flex min-h-[60vh] flex-col items-center justify-center py-20 text-center">
+      <p className="font-display text-7xl italic text-gold-deep md:text-8xl">404</p>
+      <h1 className="display-title mt-2 text-3xl text-haram-deep md:text-5xl">This page has moved on</h1>
+      <p className="lede mt-4 max-w-md text-slate">The link may be old or mistyped. These pages are where most pilgrims start.</p>
+      <ul className="mt-8 flex flex-wrap justify-center gap-2">
+        {primaryNav.map((l) => (
+          <li key={l.href}>
+            <Link href={l.href} className="inline-flex items-center gap-1.5 rounded-lg border border-line bg-white px-3.5 py-2 text-sm font-semibold text-haram-deep hover:border-haram">
+              <Icon name={l.icon} className="text-[18px] text-gold-deep" /> {l.label}
             </Link>
-            <Link
-              href="/products"
-              style={{
-                backgroundColor: "transparent",
-                color: "#11224E",
-                padding: "0.875rem 2rem",
-                borderRadius: "0.75rem",
-                fontWeight: "700",
-                textDecoration: "none",
-                fontSize: "0.95rem",
-                border: "2px solid #11224E",
-              }}
-            >
-              Browse Products
-            </Link>
-            <Link
-              href="/contact"
-              style={{
-                backgroundColor: "transparent",
-                color: "#11224E",
-                padding: "0.875rem 2rem",
-                borderRadius: "0.75rem",
-                fontWeight: "700",
-                textDecoration: "none",
-                fontSize: "0.95rem",
-                border: "2px solid #11224E",
-              }}
-            >
-              Contact Us
-            </Link>
-          </nav>
-        </main>
-      </body>
-    </html>
+          </li>
+        ))}
+      </ul>
+      <LinkButton href="/" className="mt-8" icon="home" iconPosition="start">Back to home</LinkButton>
+    </Container>
   );
 }

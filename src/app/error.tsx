@@ -1,125 +1,32 @@
 "use client";
 
-import Link from "next/link";
 import { useEffect } from "react";
+import { Button, LinkButton } from "@/components/ui/Button";
+import { Container } from "@/components/ui/Container";
+import { Icon } from "@/components/ui/Icon";
+import { whatsappUrl } from "@/config/site";
 
-export default function Error({
-  error,
-  reset,
-}: {
+interface ErrorPageProps {
   error: Error & { digest?: string };
   reset: () => void;
-}) {
+}
+
+export default function ErrorPage({ error, reset }: ErrorPageProps) {
   useEffect(() => {
-    // Log the error to an error reporting service
-    console.error("Application error:", error);
+    console.error(JSON.stringify({ event: "page_error", digest: error.digest, message: error.message }));
   }, [error]);
 
   return (
-    <main
-      style={{
-        minHeight: "100vh",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        backgroundColor: "#f9f9ff",
-        fontFamily: "system-ui, sans-serif",
-        padding: "2rem",
-      }}
-      role="main"
-      aria-labelledby="error-title"
-    >
-      <div style={{ textAlign: "center", maxWidth: "600px" }}>
-        <p
-          style={{
-            fontSize: "7rem",
-            fontWeight: "900",
-            color: "#11224E",
-            lineHeight: 1,
-            margin: "0 0 1rem",
-          }}
-          aria-hidden="true"
-        >
-          500
-        </p>
-        <h1
-          id="error-title"
-          style={{
-            fontSize: "1.75rem",
-            fontWeight: "700",
-            color: "#11224E",
-            marginBottom: "1rem",
-          }}
-        >
-          Something Went Wrong
-        </h1>
-        <p
-          style={{
-            color: "#595f67",
-            fontSize: "1.1rem",
-            lineHeight: 1.7,
-            marginBottom: "2.5rem",
-          }}
-        >
-          We apologize for the inconvenience. Please try again or contact our
-          support team.
-        </p>
-        <nav
-          aria-label="Error recovery navigation"
-          style={{
-            display: "flex",
-            flexWrap: "wrap",
-            gap: "1rem",
-            justifyContent: "center",
-          }}
-        >
-          <button
-            onClick={reset}
-            style={{
-              backgroundColor: "#11224E",
-              color: "#ffffff",
-              padding: "0.875rem 2rem",
-              borderRadius: "0.75rem",
-              fontWeight: "700",
-              fontSize: "0.95rem",
-              border: "none",
-              cursor: "pointer",
-            }}
-          >
-            Try Again
-          </button>
-          <Link
-            href="/"
-            style={{
-              backgroundColor: "transparent",
-              color: "#11224E",
-              padding: "0.875rem 2rem",
-              borderRadius: "0.75rem",
-              fontWeight: "700",
-              textDecoration: "none",
-              fontSize: "0.95rem",
-              border: "2px solid #11224E",
-            }}
-          >
-            Return to Homepage
-          </Link>
-          <Link
-            href="/contact"
-            style={{
-              backgroundColor: "transparent",
-              color: "#11224E",
-              padding: "0.875rem 2rem",
-              borderRadius: "0.75rem",
-              fontWeight: "700",
-              textDecoration: "none",
-              fontSize: "0.95rem",
-              border: "2px solid #11224E",
-            }}
-          >
-            Contact Support
-          </Link>
-        </nav>
+    <Container className="flex min-h-[60vh] flex-col items-center justify-center py-20 text-center">
+      <span className="flex h-16 w-16 items-center justify-center rounded-full bg-gold-pale text-gold-deep">
+        <Icon name="error" className="text-[32px]" />
+      </span>
+      <h1 className="display-title mt-6 text-4xl text-haram-deep md:text-5xl">Something went wrong</h1>
+      <p className="lede mt-4 max-w-md text-slate">The page could not be loaded. Please try again, or message us and a consultant will help you directly.</p>
+      <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+        <Button onClick={reset} icon="refresh">Try again</Button>
+        <LinkButton href={whatsappUrl("Assalam o Alaikum, the website showed an error. Please help me.")} variant="whatsapp">WhatsApp support</LinkButton>
       </div>
-    </main>
+    </Container>
   );
 }

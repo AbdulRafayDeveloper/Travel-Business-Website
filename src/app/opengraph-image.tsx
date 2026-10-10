@@ -1,120 +1,48 @@
 import { ImageResponse } from "next/og";
+import { LogoMark } from "@/components/graphics/LogoMark";
+import { siteConfig } from "@/config/site";
 
-export const alt = "AluTrade Global — International Aluminum & Metal Trading";
-export const size = {
-  width: 1200,
-  height: 630,
-};
+export const alt = `${siteConfig.fullName} — Umrah packages from Pakistan with real prices`;
+export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
-export default async function Image() {
+export default function OpenGraphImage() {
   return new ImageResponse(
     (
       <div
         style={{
-          height: "100%",
           width: "100%",
+          height: "100%",
           display: "flex",
           flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "center",
-          backgroundColor: "#11224E",
-          backgroundImage:
-            "linear-gradient(135deg, #1b3576 0%, #11224E 50%, #09112a 100%)",
-          color: "#ffffff",
-          fontFamily: "sans-serif",
-          padding: "40px",
+          justifyContent: "space-between",
+          padding: 64,
+          background: "linear-gradient(135deg, #083833 0%, #0E4D45 55%, #0B1F2A 100%)",
+          color: "#FBF8F2",
+          fontFamily: "Georgia, serif",
         }}
       >
-        {/* Official Brand SVG Emblem Shield */}
-        <div
-          style={{
-            width: "140px",
-            height: "140px",
-            borderRadius: "32px",
-            backgroundColor: "#11224E",
-            border: "2px solid rgba(248, 123, 27, 0.4)",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            boxShadow: "0 20px 40px rgba(0, 0, 0, 0.5)",
-            marginBottom: "28px",
-            overflow: "hidden",
-          }}
-        >
-          <svg
-            width="120"
-            height="120"
-            viewBox="0 0 512 512"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <defs>
-              <linearGradient id="og-metal-primary" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stopColor="#1b3576" />
-                <stop offset="100%" stopColor="#11224E" />
-              </linearGradient>
-              <linearGradient id="og-gold-accent" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stopColor="#ffd3b0" />
-                <stop offset="100%" stopColor="#F87B1B" />
-              </linearGradient>
-              <linearGradient id="og-silver-accent" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stopColor="#FFFFFF" />
-                <stop offset="100%" stopColor="#CBD5E1" />
-              </linearGradient>
-            </defs>
-            <path
-              d="M256 72 L420 166 V346 L256 440 L92 346 V166 Z"
-              fill="none"
-              stroke="url(#og-silver-accent)"
-              strokeWidth="16"
-              strokeLinejoin="round"
-              opacity="0.5"
-            />
-            <path
-              d="M160 380 L236 120 H276 L352 380 H294 L276 310 H236 L218 380 H160 Z"
-              fill="url(#og-silver-accent)"
-            />
-            <path
-              d="M120 330 Q 256 160, 392 210 Q 256 260, 120 330 Z"
-              fill="url(#og-gold-accent)"
-            />
-            <polygon points="256,200 280,245 256,290 232,245" fill="#FFFFFF" />
-          </svg>
+        <div style={{ display: "flex", alignItems: "center", gap: 20 }}>
+          <LogoMark size={88} arch="#F7EBC9" accent="#D4A53A" />
+          <div style={{ display: "flex", flexDirection: "column" }}>
+            <span style={{ fontSize: 56, fontWeight: 700, letterSpacing: -1 }}>Raahi</span>
+            <span style={{ fontSize: 18, letterSpacing: 6, color: "#D4A53A", fontFamily: "sans-serif", fontWeight: 700 }}>UMRAH &amp; TRAVEL</span>
+          </div>
         </div>
-
-        {/* Centered Brand Title */}
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            gap: "14px",
-            fontSize: "56px",
-            fontWeight: 900,
-            letterSpacing: "-1px",
-            marginBottom: "12px",
-          }}
-        >
-          <span>AluTrade</span>
-          <span style={{ color: "#F87B1B" }}>Global</span>
+        <div style={{ display: "flex", flexDirection: "column", gap: 18 }}>
+          <span style={{ fontSize: 60, lineHeight: 1.05, fontWeight: 600, maxWidth: 900 }}>
+            Umrah packages from Pakistan with <span style={{ color: "#D4A53A", fontStyle: "italic" }}>real prices</span>.
+          </span>
+          <span style={{ fontSize: 26, color: "rgba(251,248,242,0.85)", fontFamily: "sans-serif" }}>
+            Quad · Triple · Double prices on every package · Inspected hotels · Visa assistance · 24/7 WhatsApp
+          </span>
         </div>
-
-        {/* Subtitle */}
-        <div
-          style={{
-            fontSize: "20px",
-            fontWeight: 700,
-            color: "rgba(255, 255, 255, 0.85)",
-            letterSpacing: "3px",
-            textTransform: "uppercase",
-          }}
-        >
-          International Aluminum &amp; Non-Ferrous Metal Trading
+        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", fontFamily: "sans-serif", fontSize: 22 }}>
+          <span style={{ color: "#D4A53A", fontWeight: 700 }}>Lahore · Karachi · Islamabad</span>
+          <span style={{ color: "rgba(251,248,242,0.75)" }}>Licensed Umrah operator since {siteConfig.foundedYear}</span>
         </div>
       </div>
     ),
-    {
-      ...size,
-    }
+    { ...size },
   );
 }

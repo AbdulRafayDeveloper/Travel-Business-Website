@@ -1,95 +1,58 @@
 import type { MetadataRoute } from "next";
-import { getBaseUrl } from "@/constants/site";
+import { getBaseUrl } from "@/config/site";
+import { packages } from "@/data/packages";
+import { guides } from "@/data/guides";
+
+interface StaticRoute {
+  path: string;
+  changeFrequency: MetadataRoute.Sitemap[number]["changeFrequency"];
+  priority: number;
+}
+
+const staticRoutes: StaticRoute[] = [
+  { path: "", changeFrequency: "weekly", priority: 1 },
+  { path: "/umrah-packages", changeFrequency: "weekly", priority: 0.95 },
+  { path: "/ramadan-umrah", changeFrequency: "weekly", priority: 0.9 },
+  { path: "/hotels", changeFrequency: "weekly", priority: 0.85 },
+  { path: "/departures", changeFrequency: "weekly", priority: 0.8 },
+  { path: "/umrah-visa", changeFrequency: "monthly", priority: 0.85 },
+  { path: "/plan-your-umrah", changeFrequency: "monthly", priority: 0.9 },
+  { path: "/umrah-guide", changeFrequency: "monthly", priority: 0.7 },
+  { path: "/about", changeFrequency: "monthly", priority: 0.6 },
+  { path: "/reviews", changeFrequency: "weekly", priority: 0.7 },
+  { path: "/faqs", changeFrequency: "monthly", priority: 0.6 },
+  { path: "/contact", changeFrequency: "monthly", priority: 0.7 },
+  { path: "/agents", changeFrequency: "monthly", priority: 0.5 },
+  { path: "/payment-safety", changeFrequency: "monthly", priority: 0.5 },
+  { path: "/privacy-policy", changeFrequency: "yearly", priority: 0.3 },
+  { path: "/terms-and-conditions", changeFrequency: "yearly", priority: 0.3 },
+  { path: "/refund-policy", changeFrequency: "yearly", priority: 0.3 },
+];
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = getBaseUrl();
   const now = new Date();
 
-  return [
-    {
-      url: baseUrl,
-      lastModified: now,
-      changeFrequency: "weekly",
-      priority: 1.0,
-    },
-    {
-      url: `${baseUrl}/about`,
-      lastModified: now,
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/products`,
-      lastModified: now,
-      changeFrequency: "weekly",
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/products/aluminum-scrap`,
-      lastModified: now,
-      changeFrequency: "weekly",
-      priority: 0.9,
-    },
+  const statics = staticRoutes.map((r) => ({
+    url: `${baseUrl}${r.path}`,
+    lastModified: now,
+    changeFrequency: r.changeFrequency,
+    priority: r.priority,
+  }));
 
-    {
-      url: `${baseUrl}/pre-engineered-buildings`,
-      lastModified: now,
-      changeFrequency: "monthly",
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/petrol-pump-canopy`,
-      lastModified: now,
-      changeFrequency: "monthly",
-      priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/careers`,
-      lastModified: now,
-      changeFrequency: "monthly",
-      priority: 0.5,
-    },
-    {
-      url: `${baseUrl}/industries`,
-      lastModified: now,
-      changeFrequency: "monthly",
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/why-choose-us`,
-      lastModified: now,
-      changeFrequency: "monthly",
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/faqs`,
-      lastModified: now,
-      changeFrequency: "monthly",
-      priority: 0.6,
-    },
-    {
-      url: `${baseUrl}/contact`,
-      lastModified: now,
-      changeFrequency: "monthly",
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/request-a-quote`,
-      lastModified: now,
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/privacy-policy`,
-      lastModified: now,
-      changeFrequency: "yearly",
-      priority: 0.5,
-    },
-    {
-      url: `${baseUrl}/terms-of-service`,
-      lastModified: now,
-      changeFrequency: "yearly",
-      priority: 0.5,
-    },
-  ];
+  const packageRoutes = packages.map((p) => ({
+    url: `${baseUrl}/umrah-packages/${p.slug}`,
+    lastModified: new Date(`${p.pricesUpdatedOn}T00:00:00`),
+    changeFrequency: "weekly" as const,
+    priority: 0.9,
+  }));
+
+  const guideRoutes = guides.map((g) => ({
+    url: `${baseUrl}/umrah-guide/${g.slug}`,
+    lastModified: new Date(`${g.updatedOn}T00:00:00`),
+    changeFrequency: "monthly" as const,
+    priority: 0.6,
+  }));
+
+  return [...statics, ...packageRoutes, ...guideRoutes];
 }

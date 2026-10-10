@@ -1,174 +1,134 @@
 import type { Metadata, Viewport } from "next";
-import { Barlow_Condensed, Hanken_Grotesk } from "next/font/google";
+import { Fraunces, Noto_Nastaliq_Urdu, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
-import { LanguageProvider } from "@/providers/LanguageProvider";
-import { getBaseUrl, siteConfig } from "@/constants/site";
-import { ScrollToTop } from "@/components/ScrollToTop";
-import { WhatsAppFloat } from "@/components/WhatsAppFloat";
+import { Header } from "@/components/layout/Header";
+import { Footer } from "@/components/layout/Footer";
+import { MobileStickyBar } from "@/components/layout/MobileStickyBar";
+import { WhatsAppFloat } from "@/components/layout/WhatsAppFloat";
+import { JsonLd } from "@/components/ui/JsonLd";
+import { siteConfig } from "@/config/site";
+import { BASE_URL, organizationSchema, websiteSchema } from "@/lib/seo";
 
-const BASE_URL = getBaseUrl();
-
-const hankenGrotesk = Hanken_Grotesk({
-  variable: "--font-hanken-grotesk",
+const jakarta = Plus_Jakarta_Sans({
+  variable: "--font-jakarta",
   subsets: ["latin"],
-  weight: ["400", "500", "700", "800"],
+  weight: ["400", "500", "600", "700", "800"],
   display: "swap",
 });
 
-const barlowCondensed = Barlow_Condensed({
-  variable: "--font-barlow-condensed",
+const fraunces = Fraunces({
+  variable: "--font-fraunces",
   subsets: ["latin"],
-  weight: ["500", "600", "700", "800"],
+  weight: "variable",
+  style: ["normal", "italic"],
   display: "swap",
+  axes: ["SOFT", "opsz"],
+});
+
+const nastaliq = Noto_Nastaliq_Urdu({
+  variable: "--font-nastaliq",
+  subsets: ["arabic"],
+  weight: ["400", "600"],
+  display: "swap",
+  preload: false,
 });
 
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   maximumScale: 5,
-  userScalable: true,
-  themeColor: "#11224E",
+  themeColor: "#0E4D45",
 };
+
+const defaultTitle = `${siteConfig.fullName} | Umrah Packages from Pakistan with Real Prices`;
 
 export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),
   title: {
-    default:
-      `${siteConfig.name} | International Aluminum & Metal Trading Company`,
+    default: defaultTitle,
     template: `%s | ${siteConfig.name}`,
   },
   description: siteConfig.description,
+  applicationName: siteConfig.fullName,
   keywords: [
-    "aluminum trading company",
-    "metal trading",
-    "non-ferrous metals supplier",
-    "aluminum scrap",
-    "copper scrap",
-    "zinc trading",
-    "metal export",
-    "industrial metals",
-    "AluTrade Global",
-    "aluminum supplier Pakistan",
-    "metal trading company Pakistan",
-    "scrap metal exporter Pakistan",
+    "Umrah packages from Pakistan",
+    "Umrah packages Lahore",
+    "Umrah packages Karachi",
+    "Umrah packages Islamabad",
+    "Umrah package price 2026",
+    "Ramadan Umrah packages",
+    "Umrah visa Pakistan",
+    "Makkah hotels near Haram",
+    "Madinah hotels",
+    "licensed Umrah operator Pakistan",
   ],
-  authors: [{ name: siteConfig.name, url: BASE_URL }],
-  creator: siteConfig.name,
-  publisher: siteConfig.name,
-  category: "Business",
+  authors: [{ name: siteConfig.fullName, url: BASE_URL }],
+  creator: siteConfig.fullName,
+  publisher: siteConfig.fullName,
+  category: "travel",
   robots: {
     index: true,
     follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-video-preview": -1,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-    },
+    googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1, "max-video-preview": -1 },
   },
   openGraph: {
     type: "website",
-    locale: "en_US",
-    siteName: siteConfig.name,
-    title:
-      `${siteConfig.name} | International Aluminum & Metal Trading Company`,
-    description:
-      "Leading global supplier of aluminum scrap, copper, zinc, and recyclable metals. Serving 50+ countries with ISO-certified quality and world-class logistics.",
+    locale: "en_PK",
+    siteName: siteConfig.fullName,
+    title: defaultTitle,
+    description: siteConfig.description,
     url: BASE_URL,
-    images: [
-      {
-        url: `${BASE_URL}/og-image.png`,
-        width: 1200,
-        height: 630,
-        alt: `${siteConfig.name} — International Aluminum & Metal Trading`,
-      },
-    ],
   },
   twitter: {
     card: "summary_large_image",
-    title:
-      `${siteConfig.name} | International Aluminum & Metal Trading Company`,
-    description:
-      "Leading global supplier of aluminum scrap, copper, zinc, and recyclable metals. Serving 50+ countries with ISO-certified quality.",
-    creator: "@alutradeglobal",
-    site: "@alutradeglobal",
-    images: [`${BASE_URL}/og-image.png`],
+    title: defaultTitle,
+    description: siteConfig.description,
   },
-  alternates: {
-    canonical: BASE_URL,
-    languages: {
-      "en-US": BASE_URL,
-      "ar": `${BASE_URL}?lang=ar`,
-    },
-  },
+  alternates: { canonical: BASE_URL },
   icons: {
     icon: [
       { url: "/icon", sizes: "32x32", type: "image/png" },
       { url: "/favicon.ico", sizes: "any" },
-      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
       { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
-      { url: "/favicon-48x48.png", sizes: "48x48", type: "image/png" },
-      { url: "/android-chrome-192x192.png", sizes: "192x192", type: "image/png" },
-      { url: "/android-chrome-512x512.png", sizes: "512x512", type: "image/png" },
+      { url: "/icon-192x192.png", sizes: "192x192", type: "image/png" },
+      { url: "/icon-512x512.png", sizes: "512x512", type: "image/png" },
     ],
-    shortcut: ["/icon", "/favicon.ico"],
-    apple: [
-      { url: "/apple-icon", sizes: "180x180", type: "image/png" },
-      { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" },
-      { url: "/apple-touch-icon-180x180.png", sizes: "180x180", type: "image/png" },
-    ],
-    other: [
-      { rel: "mask-icon", url: "/logo-icon.svg", color: "#11224E" },
-    ],
+    apple: [{ url: "/apple-icon", sizes: "180x180", type: "image/png" }],
   },
   manifest: "/manifest.webmanifest",
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html
-      lang="en"
-      className={`${hankenGrotesk.variable} ${barlowCondensed.variable} h-full antialiased`}
-    >
+    <html lang="en-PK" className={`${jakarta.variable} ${fraunces.variable} ${nastaliq.variable} h-full antialiased`}>
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        {/* Material Symbols is not available through next/font. display=block is intentional:
+            with swap, icon ligature names would flash as text before the font loads. */}
+        {/* eslint-disable-next-line @next/next/no-page-custom-font, @next/next/google-font-display */}
         <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin="anonymous"
-        />
-        <link
-          rel="preconnect"
-          href="https://lh3.googleusercontent.com"
-          crossOrigin="anonymous"
-        />
-        <link
-          rel="dns-prefetch"
-          href="https://lh3.googleusercontent.com"
-        />
-        {/* eslint-disable-next-line @next/next/no-page-custom-font */}
-        <link
-          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@300..600,0..1&display=block"
           rel="stylesheet"
         />
       </head>
-      <body className="min-h-full font-sans bg-background text-on-background">
+      <body className="min-h-full bg-ivory font-sans text-ink">
         <a
           href="#main-content"
-          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:bg-primary focus:text-white focus:px-4 focus:py-2 focus:rounded-lg focus:font-bold focus:text-sm"
+          className="sr-only focus:not-sr-only focus:fixed focus:start-4 focus:top-4 focus:z-[100] focus:rounded-lg focus:bg-haram focus:px-4 focus:py-2 focus:font-bold focus:text-white"
         >
           Skip to main content
         </a>
-        <LanguageProvider>
+        <JsonLd data={organizationSchema} />
+        <JsonLd data={websiteSchema} />
+        <Header />
+        {/* Header is 68px on phones (no utility strip) and 76 + 36px on desktop */}
+        <main id="main-content" className="pt-[68px] pb-[72px] lg:pt-[112px] lg:pb-0">
           {children}
-          <ScrollToTop />
-          <WhatsAppFloat />
-        </LanguageProvider>
+        </main>
+        <Footer />
+        <MobileStickyBar />
+        <WhatsAppFloat />
       </body>
     </html>
   );
