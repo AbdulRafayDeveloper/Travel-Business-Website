@@ -2,41 +2,41 @@ import type { VisaDocument, VisaStage } from "@/types";
 
 /** Honest framing used on every visa surface. */
 export const visaDisclaimer =
-  "Raahi assists with Umrah visa processing through Saudi Ministry-licensed Umrah operators. Visas are issued by the Kingdom of Saudi Arabia, not by Raahi. Approval, fees and processing times are set by Saudi authorities and may change; we confirm the current requirements with you before any payment.";
+  "Raahi helps you with Umrah visa processing through Saudi Ministry licensed Umrah operators. Visas are issued by the Kingdom of Saudi Arabia, not by Raahi. Approval, fees and processing times are set by the Saudi authorities and can change. We confirm the current requirements with you before you pay anything.";
 
 export const visaDocuments: VisaDocument[] = [
-  { id: "passport", label: "Passport", detail: "Valid for at least 6 months from your travel date, with 2 blank pages. Machine-readable, not hand-written.", required: true },
-  { id: "photo", label: "Photograph", detail: "Recent colour photo, white background, 4×6 cm, no glasses, face uncovered (hijab allowed).", required: true },
-  { id: "cnic", label: "CNIC copy (B-form for children)", detail: "Clear copy of both sides. Children under 18 need a B-form / CRC from NADRA.", required: true },
-  { id: "polio", label: "Polio vaccination card", detail: "Oral polio drops within the last 12 months, stamped by a government health centre. Required at Pakistani airports.", required: true },
-  { id: "vaccination", label: "Other vaccinations", detail: "Meningitis (ACWY) certificate or any vaccine required by Saudi rules at the time of travel. We will tell you what applies.", required: false },
-  { id: "mahram", label: "Mahram / relationship proof", detail: "Nikah nama or FRC when spouses or children have different surnames. Not needed for women travelling without a mahram under current rules.", required: false },
-  { id: "previous", label: "Previous Saudi visa (if any)", detail: "Helps us avoid duplicate-record issues in the Saudi system.", required: false },
+  { id: "passport", label: "Passport", detail: "Valid for at least 6 months from your travel date, with 2 blank pages. It must be machine readable, not handwritten.", required: true },
+  { id: "photo", label: "Photograph", detail: "A recent colour photo on a white background, 4 by 6 cm, no glasses, face uncovered. Hijab is fine.", required: true },
+  { id: "cnic", label: "CNIC copy (B-form for children)", detail: "A clear copy of both sides. Children under 18 need a B-form or CRC from NADRA.", required: true },
+  { id: "polio", label: "Polio vaccination card", detail: "Oral polio drops within the last 12 months, stamped by a government health centre. Pakistani airports check this.", required: true },
+  { id: "vaccination", label: "Other vaccinations", detail: "A meningitis (ACWY) certificate or any other vaccine the Saudi rules require at the time you travel. We will tell you what applies.", required: false },
+  { id: "mahram", label: "Mahram or relationship proof", detail: "Nikah nama or FRC when spouses or children have different surnames. Not needed for women travelling without a mahram under the current rules.", required: false },
+  { id: "previous", label: "Previous Saudi visa, if any", detail: "This helps us avoid duplicate record problems in the Saudi system.", required: false },
 ];
 
 export const visaStages: VisaStage[] = [
-  { id: "received", title: "Documents received", detail: "We check passport validity, photo quality and CNIC details within one working day." },
-  { id: "payment", title: "Deposit confirmed", detail: "Your PKR 50,000 per person deposit is receipted and your booking number issued." },
-  { id: "submitted", title: "Submitted to licensed operator", detail: "Your application is lodged in the Saudi system through our Saudi-licensed Umrah operator." },
-  { id: "issued", title: "Visa issued", detail: "Your e-visa PDF is sent on WhatsApp and email. We check every name and date against your passport." },
-  { id: "travelpack", title: "Travel pack delivered", detail: "Tickets, hotel vouchers, transport details and your group leader's number arrive 7 days before departure." },
+  { id: "received", title: "Documents received", detail: "We check your passport validity, photo quality and CNIC details within one working day." },
+  { id: "payment", title: "Deposit confirmed", detail: "Your PKR 50,000 per person deposit is receipted and your booking number is issued." },
+  { id: "submitted", title: "Submitted to the licensed operator", detail: "Your application is lodged in the Saudi system through our Saudi licensed Umrah operator." },
+  { id: "issued", title: "Visa issued", detail: "Your e-visa PDF is sent to you on WhatsApp and email. We check every name and date against your passport." },
+  { id: "travelpack", title: "Travel pack delivered", detail: "Tickets, hotel vouchers, transport details and your group leader's number arrive 7 days before you fly." },
 ];
 
 export const visaFacts = [
-  { label: "Typical processing", value: "2 – 7 working days", note: "after complete documents and deposit" },
-  { label: "Visa validity", value: "90 days", note: "stay up to 90 days, multiple cities" },
-  { label: "Our processing fee", value: "Included", note: "in every package; PKR 12,000 if booked without a package" },
-  { label: "Saudi visa fee", value: "Included", note: "with mandatory medical insurance" },
+  { label: "Typical processing", value: "2 to 7 working days", note: "after complete documents and deposit" },
+  { label: "Visa validity", value: "90 days", note: "stay up to 90 days, visit both cities" },
+  { label: "Our processing fee", value: "Included", note: "in every package, or PKR 12,000 for a visa on its own" },
+  { label: "Saudi visa fee", value: "Included", note: "with the required medical insurance" },
 ];
 
 export const visaFaqs = [
   {
     q: "Is this form an official Saudi visa application?",
-    a: "No. Sending your documents here starts a consultation with Raahi. Your consultant reviews them and, once you confirm a booking, submits the application through our Saudi-licensed Umrah operator.",
+    a: "No. Sending your documents here starts a conversation with Raahi. Your consultant reviews them and, once you confirm a booking, submits the application through our Saudi licensed Umrah operator.",
   },
   {
     q: "Can I get an Umrah visa without buying a package?",
-    a: "Yes. We process visa-only requests for travellers who arrange their own flights and hotels. The fee is PKR 12,000 plus the Saudi visa and insurance charge, which we quote at the current rate.",
+    a: "Yes. We process visa only requests for travellers who arrange their own flights and hotels. The fee is PKR 12,000 plus the Saudi visa and insurance charge, which we quote at the current rate.",
   },
   {
     q: "Where do I upload my documents?",

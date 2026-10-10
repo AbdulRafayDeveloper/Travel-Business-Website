@@ -33,7 +33,7 @@ export default function AboutPage() {
         variant="photo"
         image={siteImages.aboutHero}
         urdu="ہمارے بارے میں"
-        eyebrow={`Since ${siteConfig.foundedYear} · ${siteConfig.stats.pilgrims} pilgrims`}
+        eyebrow={`Since ${siteConfig.foundedYear}, ${siteConfig.stats.pilgrims} pilgrims`}
         title={<>A travel company built on <em className="text-gold">written promises</em>.</>}
         lede="Raahi started with one group leader, a notebook of hotel numbers and a rule: tell pilgrims the real price and the real distance. Thirteen years later that is still the whole business."
       />

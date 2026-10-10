@@ -23,7 +23,7 @@ const crumbs = [
 
 const benefits = [
   { icon: "request_quote", title: "Net rates, your margin", text: "A B2B rate sheet for every package and hotel, updated weekly. You decide your selling price." },
-  { icon: "schedule", title: "Same-day written quotes", text: "Send dates and pax on WhatsApp; a quote in your agency's name comes back within hours." },
+  { icon: "schedule", title: "Same-day written quotes", text: "Send us the dates and the number of travellers on WhatsApp. A quote in your agency's name comes back within hours." },
   { icon: "badge", title: "Visa processing for your clients", text: "Submit through our Saudi-licensed operator with document checks done by our team." },
   { icon: "hotel", title: "Ramadan allocations", text: "Confirmed rooms near both Harams in the last Ashra, reserved for partners who book early." },
   { icon: "groups", title: "Group leaders on request", text: "Use a Raahi group leader for your departures, or train your own with us." },
@@ -31,15 +31,15 @@ const benefits = [
 ];
 
 const requirements = [
-  "Valid DTS / provincial tourism licence or Ministry of Religious Affairs enrolment (or application in progress)",
+  "A valid DTS or provincial tourism licence, or Ministry of Religious Affairs enrolment, or an application in progress",
   "SECP or sole-proprietor registration and NTN",
   "Office address and owner's CNIC copy",
-  "Refundable security deposit of PKR 100,000 for ticketing on credit (optional; prepaid accounts need no deposit)",
+  "A refundable security deposit of PKR 100,000 if you want ticketing on credit. Prepaid accounts need no deposit",
 ];
 
 const steps = [
   { step: "01", title: "Apply", text: "Fill the form below. We call within one working day." },
-  { step: "02", title: "Verify", text: "Share licence and registration documents; we visit or video-call your office." },
+  { step: "02", title: "Verify", text: "Share your licence and registration documents. We visit your office or do a video call." },
   { step: "03", title: "Onboard", text: "Receive the rate sheet, partner WhatsApp line and booking forms." },
   { step: "04", title: "Sell", text: "Quote, book and earn, with Raahi handling visas, hotels and ground operations." },
 ];
@@ -55,7 +55,7 @@ export default function AgentsPage() {
         variant="split"
         image={siteImages.coachBus}
         urdu="ٹریول ایجنٹس کے لیے"
-        eyebrow="B2B partner programme · licensed agents"
+        eyebrow="Partner programme for licensed travel agents"
         title={<>Sell Umrah with <em>Raahi behind you</em>.</>}
         lede="For travel agencies in Gujranwala, Sialkot, Faisalabad, Multan, Peshawar and beyond: our hotels, visas and ground team, your clients and your brand."
       />

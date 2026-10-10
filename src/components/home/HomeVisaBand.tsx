@@ -14,7 +14,7 @@ export function HomeVisaBand() {
       <GeoPattern color="#F7EBC9" opacity={0.06} size={120} />
       <Container className="relative grid gap-12 lg:grid-cols-2 lg:items-center lg:gap-16">
         <div>
-          <SectionHeading number="07" eyebrow="Umrah visa assistance" tone="dark" title={<>Your visa, handled <em className="text-gold">end to end</em>.</>} lede="Send us clear photos of your documents on WhatsApp or through the secure form. We check them the same day and track every stage with you." />
+          <SectionHeading number="07" eyebrow="Umrah visa assistance" tone="dark" title={<>Your visa, looked after <em className="text-gold">from start to finish</em>.</>} lede="Send us clear photos of your documents on WhatsApp or through the secure form. We check them the same day and track every stage with you." />
           <ol className="mt-8 space-y-0">
             {visaStages.map((s, i) => (
               <li key={s.id} className="relative flex gap-4 pb-6 last:pb-0">

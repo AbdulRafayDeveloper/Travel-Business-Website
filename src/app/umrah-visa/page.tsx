@@ -16,7 +16,7 @@ import { buildBreadcrumbSchema, buildFaqSchema, buildMetadata, buildServiceSchem
 
 const title = "Umrah Visa Assistance from Pakistan: Documents, Timeline & Tracking";
 const description =
-  "Umrah visa processing assistance through Saudi-licensed operators. Document checklist for Pakistani passports, 2–7 working day timeline, secure consultation form and application status tracking. Visas are issued by Saudi authorities.";
+  "Umrah visa processing assistance through Saudi-licensed operators. Document checklist for Pakistani passports, 2 to 7 working day timeline, secure consultation form and application status tracking. Visas are issued by Saudi authorities.";
 const path = "/umrah-visa";
 
 export const metadata: Metadata = buildMetadata({ title, description, path, image: siteImages.visaHero.src });
@@ -41,7 +41,7 @@ export default function UmrahVisaPage() {
         variant="photo"
         image={siteImages.visaHero}
         urdu="عمرہ ویزا میں رہنمائی"
-        eyebrow="Visa assistance · documents · tracking"
+        eyebrow="Visa help, documents and tracking"
         title={<>Your Umrah visa, <em className="text-gold">checked and followed up</em>.</>}
         lede="We prepare and submit your application through a Saudi-licensed Umrah operator, check every document first, and tell you where it stands at each stage."
       >
@@ -91,7 +91,7 @@ export default function UmrahVisaPage() {
             <SectionHeading number="02" eyebrow="Document checklist" urdu="ضروری دستاویزات" title={<>Gather these <em>before</em> you pay.</>} size="md" lede="Tick each item as you collect it. Most refusals and delays come from passport validity and photo quality, so check those twice." />
             <ul className="mt-6 space-y-2 text-sm text-slate">
               <li className="flex gap-2"><Icon name="lightbulb" className="text-[18px] text-gold-deep" /> Photograph the passport flat, in daylight, with all four corners visible.</li>
-              <li className="flex gap-2"><Icon name="lightbulb" className="text-[18px] text-gold-deep" /> Children need their own passport and a B-form; infants too.</li>
+              <li className="flex gap-2"><Icon name="lightbulb" className="text-[18px] text-gold-deep" /> Children need their own passport and a B-form, and so do infants.</li>
               <li className="flex gap-2"><Icon name="lightbulb" className="text-[18px] text-gold-deep" /> Polio drops are given free at government hospitals and airport health counters.</li>
             </ul>
           </div>

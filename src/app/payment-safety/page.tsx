@@ -48,7 +48,7 @@ export default function PaymentSafetyPage() {
         crumbs={crumbs}
         variant="band"
         urdu="ادائیگی کی حفاظت"
-        eyebrow="Official accounts · receipts · scam warning"
+        eyebrow="Official accounts, receipts and scam warnings"
         title={<>Pay only to <em className="text-gold">these accounts</em>.</>}
         lede="Umrah payment fraud is common in Pakistan. This page lists the only accounts Raahi uses, and how to check before you send money."
       />
@@ -56,7 +56,7 @@ export default function PaymentSafetyPage() {
       {/* Official accounts ledger */}
       <section className="bg-ivory py-section-sm md:py-section" aria-label="Accounts">
         <Container>
-          <SectionHeading number="01" eyebrow="Official accounts" title={<>In the company name, <em>always</em>.</>} size="md" lede="Account numbers are placeholders on this demo site; the live site shows the verified numbers, which you can also confirm by phone." />
+          <SectionHeading number="01" eyebrow="Official accounts" title={<>In the company name, <em>always</em>.</>} size="md" lede="The account numbers on this demo site are placeholders. The live site shows the verified numbers, and you can always confirm them by phone." />
           <div className="mt-8 overflow-x-auto">
             <table className="w-full min-w-[640px] border-collapse text-sm">
               <thead>

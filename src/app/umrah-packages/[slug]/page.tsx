@@ -77,7 +77,7 @@ export default async function PackageDetailPage({ params }: PageProps) {
         </Container>
         <Container className="mt-5 grid gap-8 pb-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-center lg:gap-12">
           <div className="relative aspect-[16/10] overflow-hidden rounded-2xl shadow-soft">
-            <Image src={pkg.image} alt={`${pkg.name} — ${getHotel(pkg.makkah.hotelId).name}`} fill priority sizes="(min-width: 1024px) 680px, 100vw" className="object-cover" />
+            <Image src={pkg.image} alt={`${pkg.name}, ${getHotel(pkg.makkah.hotelId).name}`} fill priority sizes="(min-width: 1024px) 680px, 100vw" className="object-cover" />
             <div className="absolute start-4 top-4 flex gap-2">
               <Badge tone={pkg.tier === "vip" ? "night" : pkg.tier === "premium" ? "gold" : "green"}>{tierLabels[pkg.tier]} · {pkg.stars}★</Badge>
               {pkg.tags.includes("popular") && <Badge tone="sunset" icon="trending_up">Most booked</Badge>}

@@ -78,7 +78,7 @@ test.describe("forms", () => {
   test("planner walks three steps with a live estimate and succeeds", async ({ page }) => {
     await page.goto("/plan-your-umrah");
     const estimate = page.getByRole("complementary", { name: /estimated cost/i });
-    await expect(estimate).toContainText(/PKR [\d,]+ – PKR [\d,]+/);
+    await expect(estimate).toContainText(/PKR [\d,]+ to PKR [\d,]+/);
 
     await page.getByLabel("Departure city").selectOption("Islamabad");
     await page.getByLabel("Hotel category").selectOption("premium");

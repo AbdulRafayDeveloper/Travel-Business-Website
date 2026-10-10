@@ -29,7 +29,7 @@ const tierFilters: Array<{ value: PackageTier | "all"; label: string }> = [
 const durationFilters: Array<{ value: DurationBand; label: string }> = [
   { value: "all", label: "Any length" },
   { value: "short", label: "Up to 10 nights" },
-  { value: "medium", label: "11 – 15 nights" },
+  { value: "medium", label: "11 to 15 nights" },
   { value: "long", label: "16+ nights" },
 ];
 

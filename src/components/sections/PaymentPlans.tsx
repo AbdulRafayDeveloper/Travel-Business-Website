@@ -5,7 +5,7 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 import { paymentMethods } from "@/data/company";
 
 const steps = [
-  { label: "Deposit to confirm", amount: "PKR 50,000", note: "per person · starts visa processing the same day", icon: "lock" },
+  { label: "Deposit to confirm", amount: "PKR 50,000", note: "per person, and visa processing starts the same day", icon: "lock" },
   { label: "Optional middle instalment", amount: "Any amount", note: "for departures more than 2 months away", icon: "calendar_month" },
   { label: "Balance", amount: "Remaining", note: "21 days before departure, or on booking for near dates", icon: "task_alt" },
 ];

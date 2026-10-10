@@ -14,10 +14,10 @@ const sections: LegalSection[] = [
     heading: "Cancellation charges by stage",
     paragraphs: ["Charges are per person and deducted from the amount you have paid. The remaining balance is refunded."],
     bullets: [
-      "Before visa submission: PKR 5,000 processing charge; everything else refunded.",
-      "After visa submission, before ticketing: Saudi visa fee and insurance (non-refundable) plus PKR 5,000.",
+      "Before the visa is submitted: a PKR 5,000 processing charge. Everything else is refunded.",
+      "After the visa is submitted but before ticketing: the Saudi visa fee and insurance, which cannot be refunded, plus PKR 5,000.",
       "After ticketing, more than 21 days before departure: visa fee, insurance, airline cancellation charge as per fare rules, plus PKR 5,000.",
-      "Within 21 days of departure: the above plus any hotel nights the hotel does not release (usually the first night, up to the full stay in Ramadan).",
+      "Within 21 days of departure: the above, plus any hotel nights the hotel does not release. This is usually the first night, and can be the full stay in Ramadan.",
       "Within 72 hours of departure or no-show: no refund, except hotel nights we are able to resell.",
     ],
   },
@@ -35,7 +35,7 @@ const sections: LegalSection[] = [
   },
   {
     heading: "How refunds are paid",
-    paragraphs: ["Refunds are paid to the bank account, JazzCash or Easypaisa number the payment came from, within 14 working days of the cancellation being confirmed in writing. Airline refunds can take longer; we pass them on within 7 working days of receiving them."],
+    paragraphs: ["Refunds are paid to the bank account, JazzCash or Easypaisa number the payment came from, within 14 working days of the cancellation being confirmed in writing. Airline refunds can take longer. We pass them on within 7 working days of receiving them."],
   },
   {
     heading: "How to cancel",

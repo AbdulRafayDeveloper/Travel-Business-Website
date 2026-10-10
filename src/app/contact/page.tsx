@@ -23,7 +23,7 @@ const crumbs = [
 
 const channels = [
   { icon: "whatsapp", title: "WhatsApp", value: contactNumber.display, note: siteConfig.supportHours, href: whatsappUrl("Assalam o Alaikum, I would like to speak to a consultant."), cta: "Open WhatsApp" },
-  { icon: "call", title: "Call", value: contactNumber.display, note: "Mobile · every day", href: contactNumber.telUrl, cta: "Call now" },
+  { icon: "call", title: "Call", value: contactNumber.display, note: "Mobile, every day", href: contactNumber.telUrl, cta: "Call now" },
   { icon: "mail", title: "Email", value: siteConfig.email, note: "Replies within one working day", href: `mailto:${siteConfig.email}`, cta: "Write to us" },
 ];
 
@@ -37,7 +37,7 @@ export default function ContactPage() {
         crumbs={crumbs}
         variant="band"
         urdu="ہم سے رابطہ کریں"
-        eyebrow="Consultants online · replies in minutes"
+        eyebrow="Consultants online, replies in minutes"
         title={<>Talk to a <em className="text-gold">person</em>, not a form.</>}
         lede="WhatsApp is fastest. Calls are answered every day. Offices welcome walk-ins. And yes, the form below reaches a human too."
       />

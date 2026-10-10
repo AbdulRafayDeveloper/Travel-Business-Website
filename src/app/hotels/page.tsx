@@ -30,10 +30,10 @@ const crumbs = [
 const hotelFaqs = [faqGroups[3].items[1], faqGroups[3].items[2], faqGroups[3].items[4], faqGroups[0].items[2]];
 
 const distanceGuide = [
-  { range: "0 – 200 m", icon: "directions_walk", text: "Inside or beside the Haram complex. Elderly pilgrims and families with small children should aim for this band." },
-  { range: "200 – 600 m", icon: "directions_walk", text: "A comfortable 3 – 8 minute walk through covered streets with shops and restaurants." },
-  { range: "600 m – 1.5 km", icon: "hiking", text: "Fine for fit adults. Expect 10 – 18 minutes each way; hills on the Misfalah side of Makkah." },
-  { range: "Shuttle hotels", icon: "directions_bus", text: "Further out with a free 24-hour bus. Cheapest option; allow 30 – 45 minutes door to gate around prayer times." },
+  { range: "0 to 200 m", icon: "directions_walk", text: "Inside or beside the Haram complex. Elderly pilgrims and families with small children should aim for this band." },
+  { range: "200 to 600 m", icon: "directions_walk", text: "A comfortable 3 to 8 minute walk through covered streets with shops and restaurants." },
+  { range: "600 m to 1.5 km", icon: "hiking", text: "Fine for fit adults. Expect 10 to 18 minutes each way, with some hills on the Misfalah side of Makkah." },
+  { range: "Shuttle hotels", icon: "directions_bus", text: "Further out, with a free bus that runs all day and night. This is the cheapest option. Allow 30 to 45 minutes from door to gate around prayer times." },
 ];
 
 export default function HotelsPage() {
@@ -51,7 +51,7 @@ export default function HotelsPage() {
         variant="split"
         image={siteImages.hotelsHero}
         urdu="مکہ اور مدینہ کے ہوٹل"
-        eyebrow={`${hotels.length} inspected hotels · rates updated ${formatDate(siteConfig.pricesUpdatedOn)}`}
+        eyebrow={`${hotels.length} inspected hotels, rates updated ${formatDate(siteConfig.pricesUpdatedOn)}`}
         title={<>Hotels we have <em>slept in</em>, priced per night.</>}
         lede="Already have your flights or visa? Book only the hotel. Every distance below is the walk from the hotel door to the nearest Haram gate, measured by our team."
       >
@@ -80,7 +80,7 @@ export default function HotelsPage() {
       <section className="bg-ivory py-section-sm md:py-section" aria-label="Makkah">
         <Container className="grid gap-10 lg:grid-cols-[0.75fr_1.25fr] lg:gap-16">
           <div className="lg:sticky lg:top-32 lg:self-start">
-            <SectionHeading number="01" eyebrow="Makkah al-Mukarramah" title={<>Hotels around <em>Masjid al-Haram</em>.</>} size="md" lede="From budget shuttle hotels to rooms inside the Clock Tower. Shuttle hotels are the cheapest way to stay longer; walkable hotels save energy for worship." />
+            <SectionHeading number="01" eyebrow="Makkah al-Mukarramah" title={<>Hotels around <em>Masjid al-Haram</em>.</>} size="md" lede="From budget shuttle hotels to rooms inside the Clock Tower. Shuttle hotels are the cheapest way to stay longer. Walkable hotels save your energy for worship." />
             <div className="relative mt-8 aspect-[4/3] overflow-hidden rounded-2xl">
               <Image src={siteImages.makkahNight.src} alt={siteImages.makkahNight.alt} fill sizes="(min-width: 1024px) 420px, 100vw" className="object-cover" />
             </div>

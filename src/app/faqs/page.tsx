@@ -32,7 +32,7 @@ export default function FaqsPage() {
         variant="split"
         image={siteImages.haramInterior}
         urdu="اکثر پوچھے گئے سوالات"
-        eyebrow={`${allFaqs.length} questions · ${faqGroups.length} topics`}
+        eyebrow={`${allFaqs.length} questions across ${faqGroups.length} topics`}
         title={<>Straight answers, <em>before</em> you call.</>}
         lede="Grouped by topic. If your question is not here, WhatsApp us and we will add the answer for the next family."
       >

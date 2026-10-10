@@ -27,7 +27,7 @@ const sections: LegalSection[] = [
     bullets: [
       "A deposit of PKR 50,000 per person confirms a booking and starts visa processing.",
       "The balance is due 21 days before departure, or immediately for departures within 21 days.",
-      "Instalments are available for departures more than two months away at no extra charge; the schedule is written on your booking form.",
+      "Instalments are available at no extra charge for departures more than two months away. The schedule is written on your booking form.",
       "Payments must be made only to the official accounts listed on our Payment Safety page. We are not responsible for money paid to any other account.",
       "A receipt with a booking number is issued for every payment.",
     ],
@@ -43,7 +43,7 @@ const sections: LegalSection[] = [
     heading: "Hotels, flights and transport",
     paragraphs: [
       "Hotels are named on each package. If a named hotel becomes unavailable for reasons beyond our control, we provide a hotel of the same star rating and equal or closer distance to the Haram, and inform you in writing before departure. If only a lesser hotel is available you may accept it with a refund of the difference or cancel with a full refund of hotel costs.",
-      "Flight times, airlines and routings may change by the airline. Transfers are provided as described on the package; shared transport may wait for other passengers on the same flight.",
+      "Flight times, airlines and routings may change by the airline. Transfers are provided as described on the package. Shared transport may wait for other passengers on the same flight.",
     ],
   },
   {

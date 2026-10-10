@@ -62,9 +62,9 @@ export function AgentForm() {
         </Field>
         <Field label="Pilgrims you send per month" htmlFor="ag-volume" error={errors.monthlyPilgrims?.message} required>
           <Select id="ag-volume" invalid={!!errors.monthlyPilgrims} {...register("monthlyPilgrims")}>
-            <option value="1-10">1 – 10</option>
-            <option value="11-30">11 – 30</option>
-            <option value="31-100">31 – 100</option>
+            <option value="1-10">1 to 10</option>
+            <option value="11-30">11 to 30</option>
+            <option value="31-100">31 to 100</option>
             <option value="100+">100+</option>
           </Select>
         </Field>

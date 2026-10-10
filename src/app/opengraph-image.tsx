@@ -2,7 +2,7 @@ import { ImageResponse } from "next/og";
 import { LogoMark } from "@/components/graphics/LogoMark";
 import { siteConfig } from "@/config/site";
 
-export const alt = `${siteConfig.fullName} — Umrah packages from Pakistan with real prices`;
+export const alt = `${siteConfig.fullName}, Umrah packages from Pakistan with real prices`;
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -34,11 +34,11 @@ export default function OpenGraphImage() {
             Umrah packages from Pakistan with <span style={{ color: "#D4A53A", fontStyle: "italic" }}>real prices</span>.
           </span>
           <span style={{ fontSize: 26, color: "rgba(251,248,242,0.85)", fontFamily: "sans-serif" }}>
-            Quad · Triple · Double prices on every package · Inspected hotels · Visa assistance · 24/7 WhatsApp
+            Quad, Triple and Double prices on every package. Inspected hotels. Visa help. WhatsApp at any hour.
           </span>
         </div>
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", fontFamily: "sans-serif", fontSize: 22 }}>
-          <span style={{ color: "#D4A53A", fontWeight: 700 }}>Lahore · Karachi · Islamabad</span>
+          <span style={{ color: "#D4A53A", fontWeight: 700 }}>Lahore, Karachi and Islamabad</span>
           <span style={{ color: "rgba(251,248,242,0.75)" }}>Licensed Umrah operator since {siteConfig.foundedYear}</span>
         </div>
       </div>

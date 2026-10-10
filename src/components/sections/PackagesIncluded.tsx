@@ -4,7 +4,7 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 
 const included = [
   { icon: "badge", title: "Umrah visa processing", text: "Through a Saudi-licensed operator, with mandatory medical insurance." },
-  { icon: "flight", title: "Return air ticket", text: "Economy class from your departure city; airline named on every package." },
+  { icon: "flight", title: "Return air ticket", text: "Economy class from your departure city. The airline is named on every package." },
   { icon: "hotel", title: "Hotels as listed", text: "Named hotels with nights per city and distance to the Haram in metres." },
   { icon: "directions_bus", title: "All transfers", text: "Airport → Makkah → Madinah → airport in air-conditioned vehicles." },
   { icon: "tour", title: "Guided ziyarat", text: "Historic sites in both cities with a Raahi group leader." },
@@ -38,7 +38,7 @@ export function PackagesIncluded() {
                 <li key={n} className="flex items-start gap-2"><Icon name="remove_circle_outline" className="mt-0.5 text-[18px] text-slate" />{n}</li>
               ))}
             </ul>
-            <p className="mt-5 text-xs text-slate">Typical food cost in Makkah and Madinah is SAR 15 – 25 per meal at Pakistani restaurants near both Harams.</p>
+            <p className="mt-5 text-xs text-slate">Typical food cost in Makkah and Madinah is SAR 15 to 25 per meal at Pakistani restaurants near both Harams.</p>
           </div>
         </div>
       </Container>

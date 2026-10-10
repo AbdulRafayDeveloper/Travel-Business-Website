@@ -32,7 +32,7 @@ export function buildMetadata({ title, description, path, image, type = "website
       type,
       siteName: siteConfig.fullName,
       locale: "en_PK",
-      images: [{ url: ogImage, width: 1200, height: 630, alt: `${siteConfig.fullName} — ${title}` }],
+      images: [{ url: ogImage, width: 1200, height: 630, alt: `${siteConfig.fullName}, ${title}` }],
     },
     twitter: {
       card: "summary_large_image",
@@ -60,7 +60,7 @@ export const organizationSchema = {
   foundingDate: String(siteConfig.foundedYear),
   telephone: "+923001234567",
   email: siteConfig.email,
-  priceRange: "PKR 165,000 – PKR 625,000",
+  priceRange: "PKR 165,000 to PKR 625,000",
   currenciesAccepted: "PKR",
   paymentAccepted: "Bank transfer, JazzCash, Easypaisa, Credit card, Debit card, Cash",
   address: {
@@ -180,7 +180,7 @@ export function buildPackageSchema(pkg: UmrahPackage) {
     brand: { "@type": "Brand", name: siteConfig.name },
     offers: (["quad", "triple", "double"] as const).map((room) => ({
       "@type": "Offer",
-      name: `${pkg.name} — ${room} sharing, per person`,
+      name: `${pkg.name}, ${room} sharing, per person`,
       price: pkg.prices[room],
       priceCurrency: "PKR",
       availability: pkg.seatsLeft !== undefined && pkg.seatsLeft < 5 ? "https://schema.org/LimitedAvailability" : "https://schema.org/InStock",

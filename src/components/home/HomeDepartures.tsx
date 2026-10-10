@@ -6,9 +6,9 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 import { upcomingDepartures } from "@/data/departures";
 
 const seasonNotes = [
-  { icon: "ac_unit", title: "Winter", text: "Dec – Feb · pleasant weather, school holidays fill fast" },
-  { icon: "nights_stay", title: "Ramadan", text: "Last Ashra groups confirmed 4–6 months ahead" },
-  { icon: "wb_sunny", title: "Shawwal", text: "Lighter crowds and good prices after Eid" },
+  { icon: "ac_unit", title: "Winter", text: "December to February. Pleasant weather, and the school holiday dates fill fast" },
+  { icon: "nights_stay", title: "Ramadan", text: "Last Ashra groups are confirmed 4 to 6 months ahead" },
+  { icon: "wb_sunny", title: "Shawwal", text: "Lighter crowds and good prices in the weeks after Eid" },
 ];
 
 export function HomeDepartures() {

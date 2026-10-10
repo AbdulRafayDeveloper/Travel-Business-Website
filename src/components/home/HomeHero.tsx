@@ -12,7 +12,7 @@ const trustChips = [
   { icon: "verified", text: "Licensed operator" },
   { icon: "price_check", text: "No hidden charges" },
   { icon: "star", text: `${siteConfig.stats.rating} · ${siteConfig.stats.reviews} reviews` },
-  { icon: "support_agent", text: "WhatsApp 9 am – 11 pm" },
+  { icon: "support_agent", text: "WhatsApp 9 am to 11 pm" },
 ];
 
 const WHATSAPP_INTRO = "Assalam o Alaikum, I want to plan my Umrah. Please guide me.";
@@ -37,7 +37,7 @@ export function HomeHero() {
           <div className="rise">
             <p className="urdu text-right text-xl text-gold-pale sm:text-2xl lg:text-left lg:text-3xl">{siteConfig.taglineUrdu}</p>
             <p className="eyebrow mt-1 flex items-center gap-2 text-gold">
-              <span className="h-px w-8 bg-gold" aria-hidden="true" /> Umrah from Pakistan<span className="hidden sm:inline"> · 2026 – 27</span>
+              <span className="h-px w-8 bg-gold" aria-hidden="true" /> Umrah from Pakistan<span className="hidden sm:inline"> · 2026 to 27</span>
             </p>
             <h1 id="hero-title" className="display-title mt-3 text-[2.35rem] leading-[1.02] sm:text-6xl lg:text-7xl">
               Umrah, planned <em className="text-gold">honestly</em>, from PKR {formatPkr(cheapestPackagePrice, false)}.

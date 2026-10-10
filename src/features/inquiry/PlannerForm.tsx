@@ -128,7 +128,7 @@ export function PlannerForm() {
         <p className="mt-4 text-white/85">{siteConfig.callbackPromise} Your consultant will call <span dir="ltr" className="font-bold">{v.phone}</span> with two or three options and a written quote.</p>
         <dl className="mt-6 grid gap-3 rounded-xl bg-white/10 p-4 text-sm sm:grid-cols-2">
           <div><dt className="text-white/65">Trip</dt><dd className="font-semibold">{summary}</dd></div>
-          <div><dt className="text-white/65">Estimated total</dt><dd className="font-display text-2xl font-semibold text-gold-pale">{formatPkr(est.low)} – {formatPkr(est.high)}</dd></div>
+          <div><dt className="text-white/65">Estimated total</dt><dd className="font-display text-2xl font-semibold text-gold-pale">{formatPkr(est.low)} to {formatPkr(est.high)}</dd></div>
         </dl>
         <div className="mt-6 flex flex-wrap gap-3">
           <LinkButton href={whatsappUrl(`Assalam o Alaikum, I submitted the Umrah planner (ref ${reference}). Trip: ${summary}. Please share options.`)} variant="whatsapp">Continue on WhatsApp</LinkButton>
@@ -175,7 +175,7 @@ export function PlannerForm() {
                 ))}
               </Select>
             </Field>
-            <Field label="Hotel category" htmlFor="pl-tier" error={errors.tier?.message} required hint="Economy 3★ shuttle · Standard 4★ · Premium 5★ near Haram · VIP">
+            <Field label="Hotel category" htmlFor="pl-tier" error={errors.tier?.message} required hint="Economy is 3 star with a shuttle, Standard is 4 star, Premium is 5 star near the Haram">
               <Select id="pl-tier" invalid={!!errors.tier} {...register("tier")}>
                 {tierOptions.map((t) => (
                   <option key={t} value={t}>{t === "undecided" ? "Not sure, advise me" : tierLabels[t]}</option>
@@ -195,8 +195,8 @@ export function PlannerForm() {
         {step === 1 && (
           <div className="grid gap-3">
             <Controller name="adults" control={control} render={({ field }) => <Stepper id="pl-adults" label="Adults" hint="12 years and above" min={1} max={40} value={field.value} onChange={field.onChange} />} />
-            <Controller name="children" control={control} render={({ field }) => <Stepper id="pl-children" label="Children" hint="2 – 11 years · discount applies" min={0} max={20} value={field.value} onChange={field.onChange} />} />
-            <Controller name="infants" control={control} render={({ field }) => <Stepper id="pl-infants" label="Infants" hint="Under 2 · infant fare only" min={0} max={10} value={field.value} onChange={field.onChange} />} />
+            <Controller name="children" control={control} render={({ field }) => <Stepper id="pl-children" label="Children" hint="2 to 11 years, discount applies" min={0} max={20} value={field.value} onChange={field.onChange} />} />
+            <Controller name="infants" control={control} render={({ field }) => <Stepper id="pl-infants" label="Infants" hint="Under 2, infant fare only" min={0} max={10} value={field.value} onChange={field.onChange} />} />
             {(errors.adults || errors.children || errors.infants) && <p role="alert" className="text-xs font-semibold text-danger">{errors.adults?.message ?? errors.children?.message ?? errors.infants?.message}</p>}
             <p className="mt-2 flex gap-2 rounded-lg bg-sand p-3 text-sm text-slate"><Icon name="elderly" className="text-[20px] text-haram" /> Travelling with elderly parents or anyone needing a wheelchair? Mention it in the notes on the next step and we will choose walkable hotels.</p>
           </div>
@@ -234,7 +234,7 @@ export function PlannerForm() {
       {/* Live estimate */}
       <aside className="h-fit rounded-2xl bg-night p-5 text-white lg:sticky lg:top-32" aria-live="polite" aria-label="Estimated cost">
         <p className="eyebrow text-gold">Live estimate</p>
-        <p className="mt-2 font-display text-3xl font-semibold text-gold-pale">{formatPkr(est.low)} – {formatPkr(est.high)}</p>
+        <p className="mt-2 font-display text-3xl font-semibold text-gold-pale">{formatPkr(est.low)} to {formatPkr(est.high)}</p>
         <p className="text-sm text-white/70">total for {watched.adults ?? 1} adult{(watched.adults ?? 1) > 1 ? "s" : ""}{watched.children ? `, ${watched.children} child${watched.children > 1 ? "ren" : ""}` : ""}{watched.infants ? `, ${watched.infants} infant${watched.infants > 1 ? "s" : ""}` : ""}</p>
         <dl className="mt-4 space-y-2 border-t border-white/15 pt-4 text-sm">
           <div className="flex justify-between"><dt className="text-white/70">Per adult, approx.</dt><dd className="font-semibold">{formatPkr(est.perAdult)}</dd></div>

@@ -13,7 +13,7 @@ import { siteImages } from "@/data/images";
 import { buildBreadcrumbSchema, buildMetadata, buildWebPageSchema } from "@/lib/seo";
 import { formatMonth } from "@/lib/utils";
 
-const title = "Umrah Group Departures 2026–27 from Lahore, Karachi & Islamabad";
+const title = "Umrah Group Departures 2026 to 2027 from Lahore, Karachi & Islamabad";
 const description = `${departures.length} fixed-date Umrah group departures from ${siteConfig.departureCities.slice(0, 4).join(", ")} with airline, package, seats left and starting price. Winter, Ramadan and school-holiday dates.`;
 const path = "/departures";
 
@@ -26,7 +26,7 @@ const crumbs = [
 
 const groupBenefits = [
   { icon: "groups", title: "A Raahi group leader on every flight", text: "Meets you at check-in in Pakistan, travels with the group and leads Umrah and ziyarat." },
-  { icon: "savings", title: "Group fares, individual rooms", text: "Shared coaches and negotiated fares keep the price down; your family keeps its own room." },
+  { icon: "savings", title: "Group fares, individual rooms", text: "Shared coaches and group fares keep the price down, and your family still keeps its own room." },
   { icon: "family_restroom", title: "Women and elders welcome", text: "Several women travel alone or with sisters in every group. Wheelchair arrangements on request." },
   { icon: "event_repeat", title: "Dates that fit Pakistani calendars", text: "December school holidays, Shab-e-Barat, the last Ashra of Ramadan and the quiet Shawwal weeks." },
 ];
@@ -42,7 +42,7 @@ export default function DeparturesPage() {
         crumbs={crumbs}
         variant="band"
         urdu="گروپ روانگی کی تاریخیں"
-        eyebrow={`${departures.length} departures · ${months.length} months`}
+        eyebrow={`${departures.length} departures over ${months.length} months`}
         title={<>Fixed dates with a <em className="text-gold">group leader</em>.</>}
         lede="Every departure shows the airline, the package it belongs to, seats remaining and the lowest per-person price. Seats are confirmed in order of deposit."
       >

@@ -36,7 +36,7 @@ export default function GuidesPage() {
         variant="split"
         image={siteImages.guideHero}
         urdu="عمرہ کی رہنمائی"
-        eyebrow={`${guides.length} guides · written by our group leaders`}
+        eyebrow={`${guides.length} guides written by our group leaders`}
         title={<>Learn Umrah <em>before</em> you fly.</>}
         lede="Everything we teach in our pre-departure sessions, written down. Short sections, Pakistani context, and the mistakes we see every week."
       />

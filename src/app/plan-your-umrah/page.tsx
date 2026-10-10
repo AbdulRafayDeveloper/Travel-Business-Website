@@ -25,7 +25,7 @@ const crumbs = [
 const whatHappens = [
   { icon: "call", title: "A named consultant calls", text: `Within 30 minutes during ${siteConfig.supportHours}. You will know who you are speaking to.` },
   { icon: "receipt_long", title: "Two or three written options", text: "Hotels named, distances in metres, airline, dates and the exact per-person price for your room type." },
-  { icon: "schedule", title: "No pressure, no payment", text: "Take your time. The quote is valid for 7 days; a deposit confirms it when you are ready." },
+  { icon: "schedule", title: "No pressure, no payment", text: "Take your time. The quote is valid for 7 days, and a deposit confirms it whenever you are ready." },
 ];
 
 export default function PlanYourUmrahPage() {
@@ -39,7 +39,7 @@ export default function PlanYourUmrahPage() {
         crumbs={crumbs}
         variant="band"
         urdu="اپنا عمرہ پلان کریں"
-        eyebrow="Free quote · 2 minutes · no payment"
+        eyebrow="Free quote in 2 minutes, no payment needed"
         title={<>Tell us your plan. We do the <em className="text-gold">rest</em>.</>}
         lede="Three short steps. You see a live estimate as you go, and a consultant calls back with options and a written quote."
       />

@@ -37,7 +37,7 @@ const reviewSchema = reviews.map((r) => ({
 const howWeCollect = [
   { icon: "verified", title: "Only pilgrims who travelled", text: "Each review is matched to a booking number before it is published." },
   { icon: "calendar_month", title: "Dated and attributed", text: "Name, city, package and date. No anonymous five-star walls." },
-  { icon: "thumb_down", title: "Critical reviews stay up", text: "We reply publicly and fix what we can; we do not delete them." },
+  { icon: "thumb_down", title: "Critical reviews stay up", text: "We reply in public and fix what we can. We do not delete them." },
   { icon: "reply", title: "We reply to every one", text: "Usually within a day, from the consultant who handled the trip." },
 ];
 
@@ -53,7 +53,7 @@ export default function ReviewsPage() {
         crumbs={crumbs}
         variant="band"
         urdu="زائرین کی آراء"
-        eyebrow={`${ratingSummary.average} out of 5 · ${ratingSummary.total.toLocaleString("en-PK")} Google reviews`}
+        eyebrow={`${ratingSummary.average} out of 5 from ${ratingSummary.total.toLocaleString("en-PK")} Google reviews`}
         title={<>What pilgrims say, with <em className="text-gold">names and dates</em>.</>}
         lede="Every review here comes from someone who travelled with us. Read the five-star ones, and the four-star ones that taught us something."
       >

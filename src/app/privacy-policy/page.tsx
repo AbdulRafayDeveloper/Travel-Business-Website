@@ -18,7 +18,7 @@ const sections: LegalSection[] = [
       "Trip preferences you give us: dates, duration, hotel category, number of travellers, notes.",
       "Travel documents when you book: passport copy, photograph, CNIC or B-form, vaccination records and, where relevant, relationship documents.",
       "Payment records: receipts and booking numbers. We do not store card numbers.",
-      "Website usage: standard server logs (IP address, pages visited, browser type) used for security and performance.",
+      "Website usage: standard server logs such as IP address, pages visited and browser type, used for security and performance.",
     ],
   },
   {
@@ -48,7 +48,7 @@ const sections: LegalSection[] = [
     heading: "Storage and security",
     paragraphs: [
       "Documents sent to us on WhatsApp or through the website are stored in access-controlled systems available only to the consultants handling your booking. Passport and CNIC copies are deleted from working devices after the trip is completed and retained in secure storage only as long as regulations require (currently up to five years for financial and travel records).",
-      "Website forms are transmitted over HTTPS. The document picker on the visa page validates files in your browser; in this demo version nothing is uploaded from that form.",
+      "Website forms are transmitted over HTTPS. The document picker on the visa page checks files in your browser. In this demo version, nothing is uploaded from that form.",
     ],
   },
   {
@@ -58,7 +58,7 @@ const sections: LegalSection[] = [
       "Ask what data we hold about you and receive a copy.",
       "Ask us to correct or delete data we no longer need for an active booking or legal retention.",
       "Opt out of promotional messages at any time by replying STOP on WhatsApp or emailing us.",
-      "Withdraw consent for visa processing before submission; after submission, deletion is subject to Saudi rules.",
+      "Withdraw consent for visa processing before we submit it. After submission, deletion depends on Saudi rules.",
     ],
   },
   {

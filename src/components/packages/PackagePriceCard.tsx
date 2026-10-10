@@ -12,16 +12,16 @@ interface PackagePriceCardProps {
 }
 
 const rooms: Array<{ key: RoomType; note: string }> = [
-  { key: "quad", note: "4 in a room · best value" },
+  { key: "quad", note: "4 in a room, best value" },
   { key: "triple", note: "3 in a room" },
-  { key: "double", note: "2 in a room · couples" },
+  { key: "double", note: "2 in a room, for couples" },
 ];
 
 /** Sticky booking aside: per-person price ledger, deposit note, CTAs. */
 export function PackagePriceCard({ pkg }: PackagePriceCardProps) {
   return (
     <aside className="rounded-2xl border border-line bg-white p-5 shadow-soft md:p-6" aria-label="Prices and booking">
-      <p className="eyebrow text-gold-deep">Per person · all inclusive</p>
+      <p className="eyebrow text-gold-deep">Per person, all inclusive</p>
       <ul className="mt-3 divide-y divide-line">
         {rooms.map((r) => (
           <li key={r.key} className="flex items-center justify-between py-3">

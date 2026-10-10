@@ -15,7 +15,7 @@ import { cheapestPackagePrice, packages } from "@/data/packages";
 import { buildBreadcrumbSchema, buildFaqSchema, buildMetadata, buildPackageSchema, buildWebPageSchema } from "@/lib/seo";
 import { formatDate, formatPkr } from "@/lib/utils";
 
-const title = "Umrah Packages from Pakistan 2026–27 with Prices";
+const title = "Umrah Packages from Pakistan 2026 to 2027 with Prices";
 const description = `Compare ${packages.length} Umrah packages from Lahore, Karachi and Islamabad with per-person prices for Quad, Triple and Double rooms, named Makkah and Madinah hotels, airlines and inclusions. From ${formatPkr(cheapestPackagePrice)}.`;
 const path = "/umrah-packages";
 
@@ -41,7 +41,7 @@ export default function UmrahPackagesPage() {
         variant="photo"
         image={siteImages.packagesHero}
         urdu="عمرہ پیکجز، مکمل قیمتوں کے ساتھ"
-        eyebrow={`${packages.length} packages · prices updated ${formatDate(siteConfig.pricesUpdatedOn)}`}
+        eyebrow={`${packages.length} packages, prices updated ${formatDate(siteConfig.pricesUpdatedOn)}`}
         title={<>Umrah packages with <em className="text-gold">honest prices</em>.</>}
         lede="Filter by hotel category, length and departure city. Every price is per person and already includes visa, flights, hotels, transfers and ziyarat."
       >

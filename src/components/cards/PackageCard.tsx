@@ -30,7 +30,7 @@ export function PackageCard({ pkg, surface = "ivory", className }: PackageCardPr
   return (
     <article className={cn("ticket-notch flex h-full flex-col rounded-2xl border border-line bg-white shadow-card transition-transform hover:-translate-y-1", surface === "sand" && "on-sand", className)} style={{ ["--notch-top" as string]: "calc(100% - 176px)" }}>
       <Link href={href} className="relative block aspect-[16/10] overflow-hidden rounded-t-2xl">
-        <Image src={pkg.image} alt={`${pkg.name} — ${makkah.name}`} fill sizes="(min-width: 1024px) 400px, (min-width: 640px) 50vw, 100vw" className="object-cover transition-transform duration-500 hover:scale-105" />
+        <Image src={pkg.image} alt={`${pkg.name}, ${makkah.name}`} fill sizes="(min-width: 1024px) 400px, (min-width: 640px) 50vw, 100vw" className="object-cover transition-transform duration-500 hover:scale-105" />
         <div className="absolute inset-x-0 top-0 flex items-start justify-between p-3">
           <Badge tone={pkg.tier === "vip" ? "night" : pkg.tier === "premium" ? "gold" : "green"}>{tierLabels[pkg.tier]} · {pkg.stars}★</Badge>
           {pkg.seatsLeft !== undefined && <Badge tone="sunset" icon="local_fire_department">{pkg.seatsLeft} seats left</Badge>}
@@ -76,7 +76,7 @@ export function PackageCard({ pkg, surface = "ivory", className }: PackageCardPr
 
       <div className="px-5 pb-5">
         <PriceBlock prices={pkg.prices} size="sm" />
-        <p className="mt-1 text-[0.7rem] text-slate">Per person · includes visa, flights, hotels &amp; transfers</p>
+        <p className="mt-1 text-[0.7rem] text-slate">Per person, including visa, flights, hotels and transfers</p>
         <div className="mt-4 grid grid-cols-[1fr_auto] gap-2">
           <Link href={href} className="inline-flex items-center justify-center gap-1.5 rounded-lg bg-haram px-4 py-2.5 text-sm font-bold text-white hover:bg-haram-deep">
             View details <Icon name="arrow_forward" className="text-[18px]" />
