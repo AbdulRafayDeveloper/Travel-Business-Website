@@ -83,7 +83,7 @@ export default function PlanYourUmrahPage() {
               ))}
             </ul>
             <p className="mt-5 text-sm text-slate">
-              Prefer to talk now? <a href={whatsappUrl("Assalam o Alaikum, I want to plan my Umrah. Please guide me.")} target="_blank" rel="noopener noreferrer" className="font-bold text-whatsapp-deep underline">WhatsApp</a> or call <a href={contactNumber.telUrl} dir="ltr" className="font-bold text-haram underline">{contactNumber.display}</a>.
+              Prefer to talk now? <a href={whatsappUrl("Assalam o Alaikum, I want to plan my Umrah. Please guide me.")} target="_blank" rel="noopener noreferrer" className="font-bold text-haram underline">WhatsApp</a> or call <a href={contactNumber.telUrl} dir="ltr" className="font-bold text-haram underline">{contactNumber.display}</a>.
             </p>
           </div>
         </Container>
