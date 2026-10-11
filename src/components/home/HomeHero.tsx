@@ -18,7 +18,8 @@ const trustChips = [
 const WHATSAPP_INTRO = "Assalam o Alaikum, I want to plan my Umrah. Please guide me.";
 
 /**
- * Hero sized to fit the first viewport on every device. On phones the planner card is rendered
+ * Hero sized to fit the first viewport on every device (capped so an artificially tall viewport,
+ * e.g. a full-page screenshot, cannot stretch it). On phones the planner card is rendered
  * directly below the hero (overlapping its edge) so the hero itself fits above the fold; from lg
  * the planner sits inside the hero's right column.
  */
@@ -26,7 +27,7 @@ export function HomeHero() {
   return (
     <>
       <section
-        className="relative isolate flex min-h-[calc(100svh-68px-72px)] items-center overflow-hidden bg-haram-deep text-white lg:min-h-[calc(100svh-112px)]"
+        className="relative isolate flex min-h-[min(calc(100svh-140px),900px)] items-center overflow-hidden bg-haram-deep text-white lg:min-h-[min(calc(100svh-112px),960px)]"
         aria-labelledby="hero-title"
       >
         <Image src={siteImages.homeHero.src} alt={siteImages.homeHero.alt} fill priority fetchPriority="high" sizes="100vw" quality={70} className="object-cover object-center" />
