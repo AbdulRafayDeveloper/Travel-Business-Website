@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
+import { LogoMark } from "@/components/graphics/LogoMark";
 
 interface GlobalErrorProps {
   error: Error & { digest?: string };
@@ -20,7 +21,8 @@ export default function GlobalError({ error, reset }: GlobalErrorProps) {
     <html lang="en-PK">
       <body style={{ margin: 0, fontFamily: "system-ui, sans-serif", background: "#FBF8F2", color: "#15262B" }}>
         <main style={{ minHeight: "100vh", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", padding: 24, textAlign: "center" }}>
-          <h1 style={{ fontSize: 32, margin: "0 0 12px", color: "#083833" }}>Something went wrong</h1>
+          <LogoMark size={56} />
+          <h1 style={{ fontSize: 32, margin: "16px 0 12px", color: "#083833" }}>Something went wrong</h1>
           <p style={{ maxWidth: 480, lineHeight: 1.6, margin: "0 0 24px", color: "#51636A" }}>
             The page could not be loaded. Please try again. If it keeps happening, message us on WhatsApp and a consultant will help you directly.
           </p>

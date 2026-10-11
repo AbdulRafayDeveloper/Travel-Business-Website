@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
+import { LogoMark } from "@/components/graphics/LogoMark";
 import { Button, LinkButton } from "@/components/ui/Button";
 import { Container } from "@/components/ui/Container";
 import { Icon } from "@/components/ui/Icon";
@@ -18,6 +19,7 @@ export default function ErrorPage({ error, reset }: ErrorPageProps) {
 
   return (
     <Container className="flex min-h-[60vh] flex-col items-center justify-center py-20 text-center">
+      <LogoMark className="mb-6 h-12 w-12" />
       <span className="flex h-16 w-16 items-center justify-center rounded-full bg-gold-pale text-gold-deep">
         <Icon name="error" className="text-[32px]" />
       </span>
