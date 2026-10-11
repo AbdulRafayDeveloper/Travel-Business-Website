@@ -93,7 +93,7 @@ test.describe("navigation", () => {
     await page.goto("/");
     const viewport = page.viewportSize();
     const bar = page.getByRole("navigation", { name: "Quick contact" });
-    const pill = page.getByRole("link", { name: /chat with raahi on whatsapp/i });
+    const pill = page.getByRole("link", { name: /plan your umrah on whatsapp/i });
     if (viewport && viewport.width < 1024) {
       await expect(bar).toBeVisible();
       await expect(pill).toBeHidden();

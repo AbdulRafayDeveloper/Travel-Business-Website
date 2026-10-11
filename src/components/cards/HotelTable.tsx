@@ -41,7 +41,7 @@ export function HotelTable({ hotels, city, compact = false, className }: HotelTa
             </div>
             <div className="text-end">
               <p className="font-display text-lg font-semibold leading-none text-haram-deep sm:text-xl">{formatPkr(h.nightlyPkr)}</p>
-              <a href={whatsappUrl(`Assalam o Alaikum, please quote ${h.name} (${h.city}) for my dates.`)} target="_blank" rel="noopener noreferrer" className="mt-1 inline-flex items-center gap-1 text-xs font-bold text-whatsapp-deep hover:underline">
+              <a href={whatsappUrl(`Assalam o Alaikum, please quote ${h.name} (${h.city}) for my dates.`)} target="_blank" rel="noopener noreferrer" className="mt-1 inline-flex items-center gap-1 text-xs font-bold text-haram hover:underline">
                 Ask for dates <Icon name="arrow_forward" className="text-[14px]" />
               </a>
             </div>

@@ -60,9 +60,9 @@ export default function AboutPage() {
                 { v: siteConfig.stats.rating, l: "Google rating" },
                 { v: siteConfig.stats.cities, l: "departure cities" },
               ].map((s) => (
-                <div key={s.l} className="p-4 text-center">
-                  <dd className="font-display text-3xl font-semibold text-haram-deep">{s.v}</dd>
-                  <dt className="text-xs text-slate">{s.l}</dt>
+                <div key={s.l} className="flex flex-col p-4 text-center">
+                  <dt className="order-2 text-xs text-slate">{s.l}</dt>
+                  <dd className="order-1 font-display text-3xl font-semibold text-haram-deep">{s.v}</dd>
                 </div>
               ))}
             </dl>

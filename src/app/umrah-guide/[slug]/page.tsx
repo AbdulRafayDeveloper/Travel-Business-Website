@@ -81,7 +81,7 @@ export default async function GuidePage({ params }: PageProps) {
                   </li>
                 ))}
               </ol>
-              <a href={whatsappUrl(`Assalam o Alaikum, I read your guide "${guide.title}" and have a question.`)} target="_blank" rel="noopener noreferrer" className="mt-6 inline-flex items-center gap-2 rounded-lg bg-whatsapp px-3.5 py-2 text-sm font-bold text-white hover:bg-whatsapp-deep">
+              <a href={whatsappUrl(`Assalam o Alaikum, I read your guide "${guide.title}" and have a question.`)} target="_blank" rel="noopener noreferrer" className="mt-6 inline-flex items-center gap-2 rounded-lg bg-whatsapp px-3.5 py-2 text-sm font-bold text-night hover:bg-whatsapp-deep">
                 <WhatsAppIcon className="h-4 w-4" /> Ask a question
               </a>
             </nav>

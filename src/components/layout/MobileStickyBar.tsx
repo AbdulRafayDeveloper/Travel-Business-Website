@@ -12,7 +12,7 @@ export function MobileStickyBar() {
         <Icon name="call" filled className="text-[22px] text-haram" />
         Call now
       </a>
-      <a href={whatsappUrl("Assalam o Alaikum, I want to plan my Umrah. Please guide me.")} target="_blank" rel="noopener noreferrer" className="flex flex-col items-center justify-center gap-0.5 bg-whatsapp py-2.5 text-xs font-bold text-white">
+      <a href={whatsappUrl("Assalam o Alaikum, I want to plan my Umrah. Please guide me.")} target="_blank" rel="noopener noreferrer" className="flex flex-col items-center justify-center gap-0.5 bg-whatsapp py-2.5 text-xs font-bold text-night">
         <WhatsAppIcon className="h-[22px] w-[22px]" />
         WhatsApp
       </a>

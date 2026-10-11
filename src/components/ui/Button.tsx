@@ -16,7 +16,7 @@ const variants: Record<ButtonVariant, string> = {
   outline: "border-2 border-haram text-haram hover:bg-haram hover:text-white",
   outlineLight: "border-2 border-white/70 text-white hover:bg-white hover:text-haram-deep",
   ghost: "text-haram hover:bg-haram-soft",
-  whatsapp: "bg-whatsapp text-white hover:bg-whatsapp-deep shadow-card",
+  whatsapp: "bg-whatsapp text-night hover:bg-whatsapp-deep shadow-card",
   white: "bg-white text-haram-deep hover:bg-gold-pale shadow-card",
 };
 

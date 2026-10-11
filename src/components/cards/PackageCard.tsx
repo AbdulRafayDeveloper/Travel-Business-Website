@@ -81,7 +81,7 @@ export function PackageCard({ pkg, surface = "ivory", className }: PackageCardPr
           <Link href={href} className="inline-flex items-center justify-center gap-1.5 rounded-lg bg-haram px-4 py-2.5 text-sm font-bold text-white hover:bg-haram-deep">
             View details <Icon name="arrow_forward" className="text-[18px]" />
           </Link>
-          <a href={whatsappUrl(packageWhatsAppMessage(pkg))} target="_blank" rel="noopener noreferrer" aria-label={`Ask about ${pkg.name} on WhatsApp`} className="inline-flex h-11 w-11 items-center justify-center rounded-lg bg-whatsapp text-white hover:bg-whatsapp-deep">
+          <a href={whatsappUrl(packageWhatsAppMessage(pkg))} target="_blank" rel="noopener noreferrer" aria-label={`Ask about ${pkg.name} on WhatsApp`} className="inline-flex h-11 w-11 items-center justify-center rounded-lg bg-whatsapp text-night hover:bg-whatsapp-deep">
             <WhatsAppIcon className="h-5 w-5" />
           </a>
         </div>

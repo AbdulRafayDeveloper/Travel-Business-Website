@@ -35,7 +35,7 @@ export function Footer() {
             <p className="mt-2 text-white/75">{siteConfig.callbackPromise}</p>
           </div>
           <div className="flex flex-col gap-3 sm:flex-row">
-            <a href={whatsappUrl("Assalam o Alaikum, I would like a call back about Umrah packages.")} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 rounded-lg bg-whatsapp px-5 py-3 font-bold text-white hover:bg-whatsapp-deep">
+            <a href={whatsappUrl("Assalam o Alaikum, I would like a call back about Umrah packages.")} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 rounded-lg bg-whatsapp px-5 py-3 font-bold text-night hover:bg-whatsapp-deep">
               <WhatsAppIcon className="h-5 w-5" /> WhatsApp us
             </a>
             <a href={contactNumber.telUrl} className="inline-flex items-center justify-center gap-2 rounded-lg bg-gold px-5 py-3 font-bold text-haram-deep hover:bg-gold-pale">

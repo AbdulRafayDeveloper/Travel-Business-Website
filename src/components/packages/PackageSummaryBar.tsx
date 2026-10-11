@@ -21,12 +21,12 @@ export function PackageSummaryBar({ pkg }: PackageSummaryBarProps) {
     <div className="border-y border-line bg-sand">
       <dl className="no-scrollbar mx-auto flex max-w-container-max gap-0 overflow-x-auto px-4 sm:px-6 md:px-margin-desktop">
         {facts.map((f) => (
-          <div key={f.label} className="flex min-w-[170px] shrink-0 items-start gap-2.5 border-e border-line py-4 pe-5 last:border-e-0 last:pe-0 ps-0 [&:not(:first-child)]:ps-5">
-            <Icon name={f.icon} className="mt-0.5 text-[20px] text-haram" />
-            <div>
-              <dt className="text-[0.65rem] font-bold uppercase tracking-[0.16em] text-slate">{f.label}</dt>
-              <dd className="text-sm font-semibold text-ink">{f.value}</dd>
-            </div>
+          <div key={f.label} className="min-w-[170px] shrink-0 border-e border-line py-4 pe-5 last:border-e-0 last:pe-0 ps-0 [&:not(:first-child)]:ps-5">
+            <dt className="flex items-center gap-2 text-[0.65rem] font-bold uppercase tracking-[0.16em] text-slate">
+              <Icon name={f.icon} className="text-[20px] text-haram" />
+              {f.label}
+            </dt>
+            <dd className="ps-7 text-sm font-semibold text-ink">{f.value}</dd>
           </div>
         ))}
       </dl>

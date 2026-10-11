@@ -7,7 +7,7 @@
   --color-haram-soft: #dcebe6;
   --color-haram-mist: #f0f6f4;
   --color-gold: #d4a53a;
-  --color-gold-deep: #8a6512;
+  --color-gold-deep: #7a5810;
   --color-gold-pale: #f7ebc9;
   --color-ivory: #fbf8f2;
   --color-sand: #f3ecdd;
@@ -16,7 +16,7 @@
   --color-ink: #15262b;
   --color-slate: #51636a;
   --color-line: #d9d5cb;
-  --color-sunset: #e07a3f;
+  --color-sunset: #c2410c;
   --color-whatsapp: #25d366;
   --color-whatsapp-deep: #1da851;
   --color-danger: #b3261e;
@@ -91,10 +91,14 @@ body {
   font-variation-settings: "opsz" 144, "SOFT" 50;
 }
 
-.display-title em {
-  font-style: italic;
-  font-weight: 500;
-  color: var(--color-gold-deep);
+/* Default accent colour for <em> in display titles; in the base layer so colour utilities
+   (e.g. text-gold-pale on dark bands) can override it. */
+@layer base {
+  .display-title em {
+    font-style: italic;
+    font-weight: 500;
+    color: var(--color-gold-deep);
+  }
 }
 
 .urdu {

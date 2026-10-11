@@ -18,7 +18,7 @@ export function HomeFinalCta() {
         </div>
         <div className="relative rounded-2xl bg-haram p-6 text-white shadow-soft md:p-8">
           <p className="urdu text-2xl text-gold-pale">ہم آپ کو کال کریں؟</p>
-          <h3 className="display-title mt-1 text-3xl md:text-4xl">Let a consultant <em className="text-gold">call you</em>.</h3>
+          <h3 className="display-title mt-1 text-3xl md:text-4xl">Let a consultant <em className="text-gold-pale">call you</em>.</h3>
           <p className="mt-3 text-white/80">Leave your number and we call back within 30 minutes during support hours. No obligation, no payment.</p>
           <CallbackForm tone="dark" className="mt-6" />
           <p className="mt-4 text-center text-sm text-white/70">

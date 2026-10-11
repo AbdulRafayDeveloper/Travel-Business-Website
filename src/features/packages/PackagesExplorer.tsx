@@ -224,7 +224,7 @@ export function PackagesExplorer({ packages }: PackagesExplorerProps) {
                       <td key={p.slug} className="py-4 pe-4">
                         <div className="flex flex-col gap-2">
                           <Link href={`/umrah-packages/${p.slug}`} className="inline-flex items-center justify-center gap-1 rounded-lg bg-haram px-3 py-2 text-xs font-bold text-white hover:bg-haram-deep">Details <Icon name="arrow_forward" className="text-[16px]" /></Link>
-                          <a href={whatsappUrl(`Assalam o Alaikum, I compared packages and I am interested in ${p.name}. Please share availability.`)} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center rounded-lg bg-whatsapp px-3 py-2 text-xs font-bold text-white hover:bg-whatsapp-deep">WhatsApp</a>
+                          <a href={whatsappUrl(`Assalam o Alaikum, I compared packages and I am interested in ${p.name}. Please share availability.`)} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center rounded-lg bg-whatsapp px-3 py-2 text-xs font-bold text-night hover:bg-whatsapp-deep">WhatsApp</a>
                         </div>
                       </td>
                     ))}
