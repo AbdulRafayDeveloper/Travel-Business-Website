@@ -6,6 +6,7 @@ import { Footer } from "@/components/layout/Footer";
 import { MobileStickyBar } from "@/components/layout/MobileStickyBar";
 import { WhatsAppFloat } from "@/components/layout/WhatsAppFloat";
 import { JsonLd } from "@/components/ui/JsonLd";
+import { materialSymbolsStylesheet } from "@/config/icons";
 import { siteConfig } from "@/config/site";
 import { BASE_URL, organizationSchema, websiteSchema } from "@/lib/seo";
 
@@ -25,11 +26,13 @@ const fraunces = Fraunces({
   axes: ["SOFT", "opsz"],
 });
 
+// Urdu accents only: a single weight, not preloaded, and "optional" so a slow first visit shows the
+// system Urdu fallback instead of swapping (and shifting layout) once the 230 KB file arrives.
 const nastaliq = Noto_Nastaliq_Urdu({
   variable: "--font-nastaliq",
   subsets: ["arabic"],
-  weight: ["400", "600"],
-  display: "swap",
+  weight: "400",
+  display: "optional",
   preload: false,
 });
 
@@ -118,10 +121,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         {/* Material Symbols is not available through next/font. display=block is intentional:
             with swap, icon ligature names would flash as text before the font loads. */}
         {/* eslint-disable-next-line @next/next/no-page-custom-font, @next/next/google-font-display */}
-        <link
-          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@300..600,0..1&display=block"
-          rel="stylesheet"
-        />
+        <link href={materialSymbolsStylesheet} rel="stylesheet" />
       </head>
       <body className="min-h-full bg-ivory font-sans text-ink">
         <a

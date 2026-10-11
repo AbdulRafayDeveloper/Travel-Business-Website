@@ -90,6 +90,7 @@ body {
 
 .urdu {
   font-family: var(--font-urdu);
+  font-weight: 400;
   direction: rtl;
   unicode-bidi: isolate;
   line-height: 2.1;
@@ -248,11 +249,16 @@ body {
 }
 
 /* Material Symbols */
+/* Icons reserve a fixed 1em square so the ligature name never widens the layout before the font loads */
 .material-symbols-outlined {
   font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
   display: inline-block;
   vertical-align: middle;
   line-height: 1;
+  width: 1em;
+  height: 1em;
+  overflow: hidden;
+  flex-shrink: 0;
 }
 
 .icon-fill {

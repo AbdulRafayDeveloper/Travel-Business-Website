@@ -38,6 +38,10 @@ const nextConfig: NextConfig = {
   compress: true,
   reactStrictMode: true,
   poweredByHeader: false,
+  experimental: {
+    // Rewrite barrel imports to direct module imports so unused parts (e.g. Zod locales) are not bundled.
+    optimizePackageImports: ["zod", "react-hook-form", "@hookform/resolvers"],
+  },
   compiler: {
     removeConsole: isProd ? { exclude: ["error", "info"] } : false,
   },

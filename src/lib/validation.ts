@@ -1,20 +1,20 @@
-import { z } from "zod";
+import { config, enum as zodEnum, literal, number, object, string, type infer as Infer } from "zod";
 import { siteConfig } from "@/config/site";
 
-// Zod 4 probes `Function("")` to enable its compiled fast path. Our Content Security Policy
-// forbids eval, so run Zod without JIT to keep the console clean and the CSP strict.
-z.config({ jitless: true });
+// Zod 4 probes Function("") to enable its compiled fast path. Our Content Security Policy forbids
+// eval, so run Zod without JIT. Named imports (rather than the `z` namespace) let the bundler drop
+// the `locales` namespace that zod re-exports, which otherwise adds ~350 KB to the client bundle.
+config({ jitless: true });
 
 /** Pakistani mobile: 03XX-XXXXXXX, +923XXXXXXXXX or 923XXXXXXXXX. */
-export const pakistaniPhone = z
-  .string()
+export const pakistaniPhone = string()
   .trim()
   .transform((v) => v.replace(/[\s-]/g, ""))
   .refine((v) => /^(\+?92|0)3\d{9}$/.test(v), "Enter a valid Pakistani mobile number, e.g. 0300 1234567");
 
-export const nameSchema = z.string().trim().min(2, "Please enter your name").max(60, "Name is too long");
+export const nameSchema = string().trim().min(2, "Please enter your name").max(60, "Name is too long");
 
-export const emailSchema = z.string().trim().email("Enter a valid email address").max(120).or(z.literal(""));
+export const emailSchema = string().trim().email("Enter a valid email address").max(120).or(literal(""));
 
 export const departureCities = siteConfig.departureCities;
 
@@ -25,67 +25,67 @@ export const monthOptions = [
   "2026-10", "2026-11", "2026-12", "2027-01", "2027-02", "2027-03", "2027-04", "2027-05", "flexible",
 ] as const;
 
-export const inquirySchema = z.object({
+export const inquirySchema = object({
   name: nameSchema,
   phone: pakistaniPhone,
   email: emailSchema.optional(),
-  city: z.enum(departureCities, { message: "Choose your departure city" }),
-  month: z.enum(monthOptions, { message: "Choose a travel month" }),
-  duration: z.enum(durationOptions, { message: "Choose a duration" }),
-  tier: z.enum(tierOptions, { message: "Choose a hotel category" }),
-  room: z.enum(roomOptions, { message: "Choose room sharing" }),
-  adults: z.number({ message: "Enter a number" }).int().min(1, "At least one adult").max(40),
-  children: z.number({ message: "Enter a number" }).int().min(0).max(20),
-  infants: z.number({ message: "Enter a number" }).int().min(0).max(10),
-  notes: z.string().trim().max(600, "Please keep notes under 600 characters").optional(),
-  packageSlug: z.string().trim().max(80).optional(),
-  source: z.string().trim().max(80).optional(),
+  city: zodEnum(departureCities, { message: "Choose your departure city" }),
+  month: zodEnum(monthOptions, { message: "Choose a travel month" }),
+  duration: zodEnum(durationOptions, { message: "Choose a duration" }),
+  tier: zodEnum(tierOptions, { message: "Choose a hotel category" }),
+  room: zodEnum(roomOptions, { message: "Choose room sharing" }),
+  adults: number({ message: "Enter a number" }).int().min(1, "At least one adult").max(40),
+  children: number({ message: "Enter a number" }).int().min(0).max(20),
+  infants: number({ message: "Enter a number" }).int().min(0).max(10),
+  notes: string().trim().max(600, "Please keep notes under 600 characters").optional(),
+  packageSlug: string().trim().max(80).optional(),
+  source: string().trim().max(80).optional(),
 });
 
-export type InquiryInput = z.infer<typeof inquirySchema>;
+export type InquiryInput = Infer<typeof inquirySchema>;
 
 /** Short "call me back" form used in CTA bands. */
-export const callbackSchema = z.object({
+export const callbackSchema = object({
   name: nameSchema,
   phone: pakistaniPhone,
-  city: z.enum(departureCities, { message: "Choose your city" }),
-  topic: z.string().trim().max(120).optional(),
+  city: zodEnum(departureCities, { message: "Choose your city" }),
+  topic: string().trim().max(120).optional(),
 });
 
-export type CallbackInput = z.infer<typeof callbackSchema>;
+export type CallbackInput = Infer<typeof callbackSchema>;
 
-export const contactSchema = z.object({
-  name: nameSchema,
-  phone: pakistaniPhone,
-  email: emailSchema.optional(),
-  subject: z.enum(["packages", "visa", "hotels", "group", "agent", "complaint", "other"], { message: "Choose a topic" }),
-  message: z.string().trim().min(10, "Tell us a little more").max(1000),
-});
-
-export type ContactInput = z.infer<typeof contactSchema>;
-
-export const visaConsultSchema = z.object({
+export const contactSchema = object({
   name: nameSchema,
   phone: pakistaniPhone,
   email: emailSchema.optional(),
-  travellers: z.number({ message: "Enter a number" }).int().min(1).max(40),
-  travelMonth: z.enum(monthOptions, { message: "Choose a travel month" }),
-  withPackage: z.enum(["yes", "no"]),
-  consent: z.literal(true, { message: "Please confirm the statement to continue" }),
+  subject: zodEnum(["packages", "visa", "hotels", "group", "agent", "complaint", "other"], { message: "Choose a topic" }),
+  message: string().trim().min(10, "Tell us a little more").max(1000),
 });
 
-export type VisaConsultInput = z.infer<typeof visaConsultSchema>;
+export type ContactInput = Infer<typeof contactSchema>;
 
-export const agentSchema = z.object({
-  agencyName: z.string().trim().min(2, "Enter your agency name").max(100),
+export const visaConsultSchema = object({
+  name: nameSchema,
+  phone: pakistaniPhone,
+  email: emailSchema.optional(),
+  travellers: number({ message: "Enter a number" }).int().min(1).max(40),
+  travelMonth: zodEnum(monthOptions, { message: "Choose a travel month" }),
+  withPackage: zodEnum(["yes", "no"]),
+  consent: literal(true, { message: "Please confirm the statement to continue" }),
+});
+
+export type VisaConsultInput = Infer<typeof visaConsultSchema>;
+
+export const agentSchema = object({
+  agencyName: string().trim().min(2, "Enter your agency name").max(100),
   contactName: nameSchema,
   phone: pakistaniPhone,
   email: emailSchema.optional(),
-  city: z.string().trim().min(2, "Enter your city").max(60),
-  monthlyPilgrims: z.enum(["1-10", "11-30", "31-100", "100+"], { message: "Choose a range" }),
-  licensed: z.enum(["yes", "no", "in-progress"], { message: "Choose an option" }),
+  city: string().trim().min(2, "Enter your city").max(60),
+  monthlyPilgrims: zodEnum(["1-10", "11-30", "31-100", "100+"], { message: "Choose a range" }),
+  licensed: zodEnum(["yes", "no", "in-progress"], { message: "Choose an option" }),
 });
 
-export type AgentInput = z.infer<typeof agentSchema>;
+export type AgentInput = Infer<typeof agentSchema>;
 
 export type FormResult = { ok: true; reference: string } | { ok: false; error: string; fieldErrors?: Record<string, string> };
