@@ -16,7 +16,7 @@ const wordSize = { sm: "text-xl", md: "text-2xl", lg: "text-4xl" };
 export function Logo({ tone = "dark", size = "md", className }: LogoProps) {
   const light = tone === "light";
   return (
-    <Link href="/" aria-label={`${siteConfig.fullName}, home`} className={cn("inline-flex items-center gap-2.5", className)}>
+    <Link href="/" title="Home" className={cn("inline-flex items-center gap-2.5", className)}>
       <LogoMark className={markSize[size]} arch={light ? "#F7EBC9" : "#0E4D45"} accent="#D4A53A" />
       <span className="flex flex-col leading-none">
         <span className={cn("font-display font-semibold tracking-tight", wordSize[size], light ? "text-white" : "text-haram-deep")}>

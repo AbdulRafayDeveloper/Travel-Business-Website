@@ -7,7 +7,7 @@
   --color-haram-soft: #dcebe6;
   --color-haram-mist: #f0f6f4;
   --color-gold: #d4a53a;
-  --color-gold-deep: #a97e17;
+  --color-gold-deep: #8a6512;
   --color-gold-pale: #f7ebc9;
   --color-ivory: #fbf8f2;
   --color-sand: #f3ecdd;
@@ -36,6 +36,15 @@
 
   --shadow-soft: 0 18px 40px -22px rgba(11, 31, 42, 0.35);
   --shadow-card: 0 10px 30px -18px rgba(11, 31, 42, 0.3);
+}
+
+/* Material Symbols, subset to the icons listed in src/config/icons.ts (see README "Fonts"). */
+@font-face {
+  font-family: "Material Symbols Outlined";
+  font-style: normal;
+  font-weight: 300 600;
+  font-display: block;
+  src: url("/fonts/material-symbols.woff2") format("woff2");
 }
 
 html {
@@ -251,6 +260,7 @@ body {
 /* Material Symbols */
 /* Icons reserve a fixed 1em square so the ligature name never widens the layout before the font loads */
 .material-symbols-outlined {
+  font-family: "Material Symbols Outlined";
   font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
   display: inline-block;
   vertical-align: middle;

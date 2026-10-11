@@ -102,5 +102,9 @@ export const materialIcons = [
 
 export type MaterialIcon = (typeof materialIcons)[number];
 
-/** Google Fonts stylesheet URL for the subset icon font (outlined, weight 300 to 600, FILL axis). */
-export const materialSymbolsStylesheet = `https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@300..600,0..1&icon_names=${materialIcons.join(",")}&display=block`;
+/**
+ * Google Fonts URL that produces the subset font. After adding an icon above, download the WOFF2
+ * this stylesheet points to (request it with a current Chrome user agent) and replace
+ * public/fonts/material-symbols.woff2.
+ */
+export const materialSymbolsSubsetUrl = `https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@300..600,0..1&icon_names=${materialIcons.join(",")}&display=block`;

@@ -6,15 +6,15 @@ const isPreview = Boolean(process.env.VERCEL_ENV) && process.env.VERCEL_ENV !== 
 
 /**
  * Content Security Policy. Inline scripts/styles are required by Next.js hydration and Tailwind;
- * everything else is restricted to this origin plus the few third parties the site actually uses
- * (Google Fonts for Material Symbols, Google Maps embeds on the contact page, WhatsApp links).
+ * everything else is restricted to this origin plus the one third party the site embeds
+ * (Google Maps on the contact page). All fonts are self-hosted.
  * 'unsafe-eval' is only needed by the development tooling.
  */
 const contentSecurityPolicy = [
   "default-src 'self'",
   `script-src 'self' 'unsafe-inline'${isProd ? "" : " 'unsafe-eval'"}`,
-  "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
-  "font-src 'self' data: https://fonts.gstatic.com",
+  "style-src 'self' 'unsafe-inline'",
+  "font-src 'self' data:",
   "img-src 'self' data: blob:",
   "frame-src https://www.google.com",
   "connect-src 'self'",
@@ -47,14 +47,14 @@ const nextConfig: NextConfig = {
   },
   images: {
     formats: ["image/avif", "image/webp"],
-    qualities: [65, 70, 75],
+    qualities: [60, 65, 70, 75],
     minimumCacheTTL: 86400,
   },
   async headers() {
     return [
       { source: "/:path*", headers: securityHeaders },
       {
-        source: "/images/:path*",
+        source: "/(images|fonts)/:path*",
         headers: [{ key: "Cache-Control", value: "public, max-age=31536000, immutable" }],
       },
       {

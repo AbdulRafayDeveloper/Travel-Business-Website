@@ -6,7 +6,6 @@ import { Footer } from "@/components/layout/Footer";
 import { MobileStickyBar } from "@/components/layout/MobileStickyBar";
 import { WhatsAppFloat } from "@/components/layout/WhatsAppFloat";
 import { JsonLd } from "@/components/ui/JsonLd";
-import { materialSymbolsStylesheet } from "@/config/icons";
 import { siteConfig } from "@/config/site";
 import { BASE_URL, organizationSchema, websiteSchema } from "@/lib/seo";
 
@@ -116,12 +115,8 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     <html lang="en-PK" className={`${jakarta.variable} ${fraunces.variable} ${nastaliq.variable} h-full antialiased`}>
       <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        {/* Material Symbols is not available through next/font. display=block is intentional:
-            with swap, icon ligature names would flash as text before the font loads. */}
-        {/* eslint-disable-next-line @next/next/no-page-custom-font, @next/next/google-font-display */}
-        <link href={materialSymbolsStylesheet} rel="stylesheet" />
+        {/* Self-hosted subset of Material Symbols (see src/config/icons.ts); preload so icons paint with the first frame */}
+        <link rel="preload" href="/fonts/material-symbols.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
       </head>
       <body className="min-h-full bg-ivory font-sans text-ink">
         <a

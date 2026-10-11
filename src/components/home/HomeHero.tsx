@@ -30,7 +30,7 @@ export function HomeHero() {
         className="relative isolate flex min-h-[min(calc(100svh-140px),900px)] items-center overflow-hidden bg-haram-deep text-white lg:min-h-[min(calc(100svh-112px),960px)]"
         aria-labelledby="hero-title"
       >
-        <Image src={siteImages.homeHero.src} alt={siteImages.homeHero.alt} fill priority fetchPriority="high" sizes="100vw" quality={70} className="object-cover object-center" />
+        <Image src={siteImages.homeHero.src} alt={siteImages.homeHero.alt} fill priority fetchPriority="high" sizes="100vw" quality={60} className="object-cover object-center" />
         <div className="hero-overlay absolute inset-0" aria-hidden="true" />
         <GeoPattern color="#F7EBC9" opacity={0.08} size={110} className="mix-blend-soft-light" />
 
