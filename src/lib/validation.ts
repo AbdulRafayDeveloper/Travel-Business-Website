@@ -10,7 +10,7 @@ config({ jitless: true });
 export const pakistaniPhone = string()
   .trim()
   .transform((v) => v.replace(/[\s-]/g, ""))
-  .refine((v) => /^(\+?92|0)3\d{9}$/.test(v), "Enter a valid Pakistani mobile number, e.g. 0300 1234567");
+  .refine((v) => /^(\+?92|0)3\d{9}$/.test(v), "Enter a valid Pakistani mobile number, e.g. 0306 0815246");
 
 export const nameSchema = string().trim().min(2, "Please enter your name").max(60, "Name is too long");
 

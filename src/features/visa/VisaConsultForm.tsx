@@ -89,7 +89,7 @@ export function VisaConsultForm() {
           <Input id="vc-name" autoComplete="name" invalid={!!errors.name} {...register("name")} />
         </Field>
         <Field label="Mobile / WhatsApp number" htmlFor="vc-phone" error={errors.phone?.message} required>
-          <Input id="vc-phone" type="tel" inputMode="tel" autoComplete="tel" placeholder="0300 1234567" dir="ltr" invalid={!!errors.phone} {...register("phone")} />
+          <Input id="vc-phone" type="tel" inputMode="tel" autoComplete="tel" placeholder="0306 0815246" dir="ltr" invalid={!!errors.phone} {...register("phone")} />
         </Field>
         <Field label="Email (optional)" htmlFor="vc-email" error={errors.email?.message}>
           <Input id="vc-email" type="email" autoComplete="email" invalid={!!errors.email} {...register("email")} />

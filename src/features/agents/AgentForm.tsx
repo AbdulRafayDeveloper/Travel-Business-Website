@@ -52,7 +52,7 @@ export function AgentForm() {
           <Input id="ag-name" autoComplete="name" invalid={!!errors.contactName} {...register("contactName")} />
         </Field>
         <Field label="Mobile / WhatsApp" htmlFor="ag-phone" error={errors.phone?.message} required>
-          <Input id="ag-phone" type="tel" inputMode="tel" autoComplete="tel" placeholder="0300 1234567" dir="ltr" invalid={!!errors.phone} {...register("phone")} />
+          <Input id="ag-phone" type="tel" inputMode="tel" autoComplete="tel" placeholder="0306 0815246" dir="ltr" invalid={!!errors.phone} {...register("phone")} />
         </Field>
         <Field label="Email (optional)" htmlFor="ag-email" error={errors.email?.message}>
           <Input id="ag-email" type="email" autoComplete="email" invalid={!!errors.email} {...register("email")} />

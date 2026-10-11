@@ -65,8 +65,8 @@ export const paymentMethods: PaymentMethod[] = [
 export const officialAccounts: OfficialAccount[] = [
   { bank: "Habib Bank Limited (HBL)", title: "Raahi Umrah & Travel (Pvt.) Ltd.", accountNumber: "XXXX-XXXXXXX-XX (placeholder)", iban: "PK00 HABB 0000 0000 0000 0000 (placeholder)" },
   { bank: "Meezan Bank", title: "Raahi Umrah & Travel (Pvt.) Ltd.", accountNumber: "XXXX-XXXXXXX-XX (placeholder)", iban: "PK00 MEZN 0000 0000 0000 0000 (placeholder)" },
-  { bank: "JazzCash Business", title: "Raahi Umrah & Travel", accountNumber: "0300 123 4567 (placeholder)", iban: "Not applicable" },
-  { bank: "Easypaisa Business", title: "Raahi Umrah & Travel", accountNumber: "0300 123 4567 (placeholder)", iban: "Not applicable" },
+  { bank: "JazzCash Business", title: "Raahi Umrah & Travel", accountNumber: "0306 0815246 (placeholder)", iban: "Not applicable" },
+  { bank: "Easypaisa Business", title: "Raahi Umrah & Travel", accountNumber: "0306 0815246 (placeholder)", iban: "Not applicable" },
 ];
 
 export const whyRaahi = [

@@ -4,15 +4,10 @@
  */
 
 export const contactNumber = {
-  display: "+92 300 123 4567",
-  e164: "+923001234567",
-  whatsappNumber: "923001234567",
-  telUrl: "tel:+923001234567",
-} as const;
-
-export const landline = {
-  display: "042 3587 1234",
-  telUrl: "tel:+924235871234",
+  display: "+92 306 0815246",
+  e164: "+923060815246",
+  whatsappNumber: "923060815246",
+  telUrl: "tel:+923060815246",
 } as const;
 
 export interface Office {
@@ -33,8 +28,8 @@ export const offices: Office[] = [
     city: "Lahore",
     label: "Head Office",
     address: "2nd Floor, Al-Hafeez Heights, Main Boulevard, Gulberg III, Lahore",
-    phone: "042 3587 1234",
-    telUrl: "tel:+924235871234",
+    phone: "+92 306 0815246",
+    telUrl: "tel:+923060815246",
     hours: "Monday to Saturday, 10:00 am to 8:00 pm",
     mapQuery: "Main Boulevard Gulberg III Lahore",
     isHeadOffice: true,
@@ -44,8 +39,8 @@ export const offices: Office[] = [
     city: "Karachi",
     label: "Branch Office",
     address: "Office 14, Mezzanine Floor, Shahrah-e-Faisal, Karachi",
-    phone: "021 3456 7890",
-    telUrl: "tel:+922134567890",
+    phone: "+92 306 0815246",
+    telUrl: "tel:+923060815246",
     hours: "Monday to Saturday, 10:00 am to 8:00 pm",
     mapQuery: "Shahrah-e-Faisal Karachi",
     isHeadOffice: false,
@@ -55,8 +50,8 @@ export const offices: Office[] = [
     city: "Islamabad",
     label: "Branch Office",
     address: "Office 7, 1st Floor, Jinnah Avenue, Blue Area, Islamabad",
-    phone: "051 2345 678",
-    telUrl: "tel:+92512345678",
+    phone: "+92 306 0815246",
+    telUrl: "tel:+923060815246",
     hours: "Monday to Saturday, 10:00 am to 8:00 pm",
     mapQuery: "Jinnah Avenue Blue Area Islamabad",
     isHeadOffice: false,

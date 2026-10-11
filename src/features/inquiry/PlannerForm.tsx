@@ -208,7 +208,7 @@ export function PlannerForm() {
               <Input id="pl-name" autoComplete="name" invalid={!!errors.name} {...register("name")} />
             </Field>
             <Field label="Mobile / WhatsApp number" htmlFor="pl-phone" error={errors.phone?.message} required>
-              <Input id="pl-phone" type="tel" inputMode="tel" autoComplete="tel" placeholder="0300 1234567" dir="ltr" invalid={!!errors.phone} {...register("phone")} />
+              <Input id="pl-phone" type="tel" inputMode="tel" autoComplete="tel" placeholder="0306 0815246" dir="ltr" invalid={!!errors.phone} {...register("phone")} />
             </Field>
             <Field label="Email (optional)" htmlFor="pl-email" error={errors.email?.message} className="sm:col-span-2">
               <Input id="pl-email" type="email" autoComplete="email" invalid={!!errors.email} {...register("email")} />

@@ -64,7 +64,7 @@ export function CallbackForm({ topic = "General Umrah inquiry", tone = "light", 
           <Input id="cb-name" autoComplete="name" placeholder="e.g. Muhammad Ahmed" invalid={!!errors.name} aria-describedby={errors.name ? "cb-name-error" : undefined} {...register("name")} />
         </Field>
         <Field label="Mobile number" htmlFor="cb-phone" error={errors.phone?.message} required tone={tone}>
-          <Input id="cb-phone" type="tel" inputMode="tel" autoComplete="tel" placeholder="0300 1234567" dir="ltr" invalid={!!errors.phone} {...register("phone")} />
+          <Input id="cb-phone" type="tel" inputMode="tel" autoComplete="tel" placeholder="0306 0815246" dir="ltr" invalid={!!errors.phone} {...register("phone")} />
         </Field>
       </div>
       <Field label="Your city" htmlFor="cb-city" error={errors.city?.message} required tone={tone}>

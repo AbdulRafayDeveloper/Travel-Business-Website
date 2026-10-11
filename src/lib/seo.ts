@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { getBaseUrl, offices, siteConfig } from "@/config/site";
+import { contactNumber, getBaseUrl, offices, siteConfig } from "@/config/site";
 import type { FaqItem, Guide, Hotel, UmrahPackage } from "@/types";
 import { getHotel } from "@/data/hotels";
 import type { SiteImageKey } from "@/data/images";
@@ -74,7 +74,7 @@ export const organizationSchema = {
   image: OG_IMAGE,
   description: siteConfig.description,
   foundingDate: String(siteConfig.foundedYear),
-  telephone: "+923001234567",
+  telephone: contactNumber.e164,
   email: siteConfig.email,
   priceRange: "PKR 165,000 to PKR 625,000",
   currenciesAccepted: "PKR",
@@ -100,8 +100,8 @@ export const organizationSchema = {
     { "@type": "OpeningHoursSpecification", dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"], opens: "10:00", closes: "20:00" },
   ],
   contactPoint: [
-    { "@type": "ContactPoint", telephone: "+923001234567", contactType: "customer service", availableLanguage: ["Urdu", "English", "Punjabi"], areaServed: "PK", hoursAvailable: "Mo-Su 09:00-23:00" },
-    { "@type": "ContactPoint", telephone: "+923001234567", contactType: "sales", availableLanguage: ["Urdu", "English"], areaServed: "PK" },
+    { "@type": "ContactPoint", telephone: contactNumber.e164, contactType: "customer service", availableLanguage: ["Urdu", "English", "Punjabi"], areaServed: "PK", hoursAvailable: "Mo-Su 09:00-23:00" },
+    { "@type": "ContactPoint", telephone: contactNumber.e164, contactType: "sales", availableLanguage: ["Urdu", "English"], areaServed: "PK" },
   ],
   sameAs: [siteConfig.social.facebook, siteConfig.social.instagram, siteConfig.social.youtube, siteConfig.social.tiktok, siteConfig.social.twitter],
   knowsAbout: ["Umrah packages", "Umrah visa assistance", "Makkah hotels", "Madinah hotels", "Ziyarat tours", "Ramadan Umrah"],

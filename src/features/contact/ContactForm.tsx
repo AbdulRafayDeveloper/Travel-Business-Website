@@ -59,7 +59,7 @@ export function ContactForm() {
           <Input id="ct-name" autoComplete="name" invalid={!!errors.name} {...register("name")} />
         </Field>
         <Field label="Mobile number" htmlFor="ct-phone" error={errors.phone?.message} required>
-          <Input id="ct-phone" type="tel" inputMode="tel" autoComplete="tel" placeholder="0300 1234567" dir="ltr" invalid={!!errors.phone} {...register("phone")} />
+          <Input id="ct-phone" type="tel" inputMode="tel" autoComplete="tel" placeholder="0306 0815246" dir="ltr" invalid={!!errors.phone} {...register("phone")} />
         </Field>
         <Field label="Email (optional)" htmlFor="ct-email" error={errors.email?.message}>
           <Input id="ct-email" type="email" autoComplete="email" invalid={!!errors.email} {...register("email")} />
